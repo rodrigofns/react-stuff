@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import Home from './routed/Home';
-import About from './routed/About';
+import Films from './routed/Films';
 import Form from './routed/Form';
 
 export default class App extends Component {
@@ -24,12 +24,12 @@ export default class App extends Component {
 				<div>
 					<ul>
 						<li><Link to="/">Home</Link></li>
-						<li><Link to="/about">About</Link></li>
+						<li><Link to="/films">Films</Link></li>
 						<li><Link to="/form">Form</Link></li>
 					</ul>
 					<hr/>
 					<Route exact path="/" component={Home}/>
-					<Route path="/about" component={About}/>
+					<Route path="/films" component={Films}/>
 					<Route path="/form" component={Form}/>
 				</div>
 			</Router>
