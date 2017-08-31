@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListaFilmes from '../blocos/ListaFilmes';
 
 export default class Films extends Component {
 	constructor(props) {
@@ -26,15 +27,11 @@ export default class Films extends Component {
 		return (
 			<div>
 				<h1>Films</h1>
-				{this.state.loading ? (<div>Loading...</div>) : null}
-				{this.state.films ? (
-					<ul>
-					{this.state.films.map((f, i) => (
-						<li key={i}>{f.name} ({f.year})</li>
-					))}
-					</ul>
-					) : null
-				}
+				{this.state.loading ? (
+					<div>Loading...</div>
+				) : (
+					<ListaFilmes filmes={this.state.films}/>
+				)}
 			</div>
 		);
 	}
