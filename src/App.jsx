@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
-import Campos from './blocos/Campos';
-import Avisador from './blocos/Avisador';
+import Home from './routed/Home';
+import About from './routed/About';
+import Form from './routed/Form';
 
 export default class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { nome: '', local: '' };
-	}
-
-	mudouTexto = (val) => {
-		this.setState({
-			nome: val.nome,
-			local: val.local
-		});
-	}
-
 	render() {
 		return (
 			// <div className="App">
@@ -28,13 +18,21 @@ export default class App extends Component {
 			// 		To get started, edit <code>src/App.js</code> and save to reload.
 			// 	</p>
 			// </div>
-			<div>
-				<h2>THE FUCKING APP</h2>
-				<h3>Campos:</h3>
-				<Campos mudouAlgo={this.mudouTexto}/>
-				<h3>Avisador:</h3>
-				<Avisador nome={this.state.nome} local={this.state.local}/>
-			</div>
+
+			// https://reacttraining.com/react-router/web/example/basic
+			<Router>
+				<div>
+					<ul>
+						<li><Link to="/">Home</Link></li>
+						<li><Link to="/about">About</Link></li>
+						<li><Link to="/form">Form</Link></li>
+					</ul>
+					<hr/>
+					<Route exact path="/" component={Home}/>
+					<Route path="/about" component={About}/>
+					<Route path="/form" component={Form}/>
+				</div>
+			</Router>
 		);
 	}
 }
