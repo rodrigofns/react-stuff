@@ -1,0 +1,15 @@
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.gitignore": true,
+		"**/.jazzignore": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/.DS_Store": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.vscode": true,
+		"**/node_modules": true,
+		"**/*.css": true
+	}
+}
