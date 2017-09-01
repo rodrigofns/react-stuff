@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Campos from '../blocos/Campos';
-import Avisador from '../blocos/Avisador';
+import Campos from './Campos';
+import Avisador from './Avisador';
 
 export default class Form extends Component {
 	constructor(props) {

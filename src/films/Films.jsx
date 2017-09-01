@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListaFilmes from '../blocos/ListaFilmes';
+import ListaFilmes from './ListaFilmes';
 
 export default class Films extends Component {
 	constructor(props) {

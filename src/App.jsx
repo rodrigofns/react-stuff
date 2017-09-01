@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
-import Home from './routed/Home';
-import Films from './routed/Films';
-import Form from './routed/Form';
+import Home from './home/Home';
+import Films from './films/Films';
+import Form from './form/Form';
 
 export default class App extends Component {
 	render() {
