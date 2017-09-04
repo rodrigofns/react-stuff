@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@react-mdc/button';
+import Textfield from '@react-mdc/textfield';
 
 export default class Campos extends Component {
 	static propTypes = {
@@ -21,20 +23,25 @@ export default class Campos extends Component {
 			});
 	}
 
+	clicou = (e) => {
+		console.log(this.state.nome, this.state.local);
+	}
+
 	render() {
 		return (
-			<table>
-				<tbody>
-					<tr>
-						<td>Nome:</td>
-						<td><input name="nome" size="20" autoFocus onChange={this.mudou}/></td>
-					</tr>
-					<tr>
-						<td>Local:</td>
-						<td><input name="local" size="20" onChange={this.mudou}/></td>
-					</tr>
-				</tbody>
-			</table>
+			<div>
+				<Textfield>
+					<Textfield.Input name="nome" onChange={this.mudou}/>
+					<Textfield.Label htmlFor="nome">Nome</Textfield.Label>
+				</Textfield>
+				<br/>
+				<Textfield>
+					<Textfield.Input name="local" onChange={this.mudou}/>
+					<Textfield.Label htmlFor="local">Local</Textfield.Label>
+				</Textfield>
+				{' '}
+				<Button raised accent onClick={this.clicou}>Log fields</Button>
+			</div>
 		);
 	}
 }

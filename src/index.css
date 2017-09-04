@@ -10,3 +10,14 @@ a {
 li {
 	line-height: 125%;
 }
+
+:root {
+	--mdc-theme-primary: #074e68;
+	--mdc-theme-secondary: #9b1a37;
+}
+.mdc-textfield {
+	height: auto !important;
+}
+.mdc-textfield__input {
+	letter-spacing: normal;
+}
