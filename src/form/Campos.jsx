@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Campos extends Component {
+	static propTypes = {
+		mudouAlgo: PropTypes.func
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = { nome: '', local: '' };
