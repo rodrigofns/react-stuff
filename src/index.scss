@@ -1,3 +1,10 @@
+/**
+ * Estilos gerais da aplicação.
+ */
+
+@import '../node_modules/react-md/src/scss/react-md';
+@include react-md-everything;
+
 body,table,input {
 	font: 12pt Arial, sans-serif;
 	color: #444;
