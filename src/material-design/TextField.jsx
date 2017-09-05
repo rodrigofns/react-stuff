@@ -7,6 +7,7 @@ export default class TextField extends Component {
 	static propTypes = {
 		autoFocus: PropTypes.oneOf([true, false, 'autoFocus']),
 		defaultValue: PropTypes.string,
+		disabled: PropTypes.oneOf([true, false, 'disabled']),
 		label: PropTypes.string.isRequired,
 		name: PropTypes.string.isRequired,
 		size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -44,13 +45,23 @@ export default class TextField extends Component {
 	}
 
 	render() {
+		let fieldStyle = {
+			height: 'auto',
+			marginTop: '24px'
+		};
+		let inputStyle = {
+			letterSpacing: 'normal'
+		};
 		return (
 			<div className="mdc-textfield"
+				style={fieldStyle}
 				data-mdc-auto-init="MDCTextfield"
 				ref={(el) => this.divElement = el}>
 				<input type="text"
 					name={this.props.name}
 					className="mdc-textfield__input"
+					style={inputStyle}
+					disabled={this.props.disabled}
 					size={this.props.size}
 					defaultValue={this.props.defaultValue}
 					onChange={this.handleChange}/>
