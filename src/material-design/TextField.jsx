@@ -14,17 +14,15 @@ export default class TextField extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCTextfield(this.inputElement);
+		this.mdcComponent = new MDCTextfield(this.divElement);
 		if (this.props.autoFocus) {
-			this.inputElement.getElementsByTagName('input')[0].focus();
+			this.divElement.getElementsByTagName('input')[0].focus();
 		}
 		if (this.props.defaultValue) {
 			this.handleChange({
 				target: {
-					name: this.props.name,
 					value: this.props.defaultValue
-				},
-				type: 'change'
+				}
 			});
 		}
 	}
@@ -35,7 +33,13 @@ export default class TextField extends Component {
 
 	handleChange = (e) => {
 		if (this.props.onChange) {
-			this.props.onChange(e);
+			this.props.onChange({
+				target: {
+					name: this.props.name,
+					value: e.target.value
+				},
+				type: 'change'
+			});
 		}
 	}
 
@@ -43,7 +47,7 @@ export default class TextField extends Component {
 		return (
 			<div className="mdc-textfield"
 				data-mdc-auto-init="MDCTextfield"
-				ref={(el) => this.inputElement = el}>
+				ref={(el) => this.divElement = el}>
 				<input type="text"
 					name={this.props.name}
 					className="mdc-textfield__input"

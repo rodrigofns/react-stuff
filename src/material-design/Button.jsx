@@ -23,7 +23,10 @@ export default class Button extends Component {
 
 	handleClick = (e) => {
 		if (this.props.onClick) {
-			this.props.onClick(e);
+			this.props.onClick({
+				target: { },
+				type: 'click'
+			});
 		}
 	}
 

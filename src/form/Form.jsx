@@ -5,13 +5,14 @@ import Avisador from './Avisador';
 export default class Form extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { nome: '', local: '' };
+		this.state = { nome: '', local: '', nacional: false };
 	}
 
-	mudouTexto = (val) => {
+	mudou = (val) => {
 		this.setState({
 			nome: val.nome,
-			local: val.local
+			local: val.local,
+			nacional: val.nacional
 		});
 	}
 
@@ -20,9 +21,11 @@ export default class Form extends Component {
 			<div>
 				<h1>Form</h1>
 				<h2>Campos</h2>
-				<Campos mudouAlgo={this.mudouTexto}/>
+				<Campos mudouAlgo={this.mudou}/>
 				<h2>Avisador</h2>
-				<Avisador nome={this.state.nome} local={this.state.local}/>
+				<Avisador nome={this.state.nome}
+					local={this.state.local}
+					nacional={this.state.nacional}/>
 			</div>
 		);
 	}
