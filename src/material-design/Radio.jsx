@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '@material/checkbox/dist/mdc.checkbox.min.css';
-import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min.js';
+import '@material/radio/dist/mdc.radio.min.css';
+import { MDCRadio } from '@material/radio/dist/mdc.radio.min.js';
 
-export default class Checkbox extends Component {
+export default class Radio extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		label: PropTypes.string.isRequired,
 		name: PropTypes.string.isRequired,
+		value: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCCheckbox(this.divElement);
-		if (this.props.defaultChecked) {
-			this.handleChange();
-		}
+		this.mdcComponent = new MDCRadio(this.divElement);
 	}
 
 	componentWillUnmount() {
@@ -23,11 +21,17 @@ export default class Checkbox extends Component {
 	}
 
 	handleChange = (e) => {
+		let radios = document.getElementsByName(this.props.name);
+		for (let i = 0; i < radios.length; ++i) {
+			if (radios[i].name !== this.props.name) {
+				radios[i].value = '';
+			}
+		}console.log(this.props.value)
 		if (this.props.onChange) {
 			this.props.onChange({
 				target: {
 					name: this.props.name,
-					value: this.mdcComponent.checked
+					value: this.props.value
 				},
 				type: 'change'
 			});
@@ -38,9 +42,11 @@ export default class Checkbox extends Component {
 		let labelStyle = {
 			display: 'inline-block'
 		};
+		let mdcStyle = {
+			top: '13px'
+		};
 		let divStyle = {
 			display: 'inline-block',
-			paddingBottom: '10px',
 			cursor: 'pointer',
 			MozUserSelect: 'none',
 			WebkitUserSelect: 'none',
@@ -48,23 +54,19 @@ export default class Checkbox extends Component {
 		};
 		return (
 			<label style={labelStyle}>
-				<div className="mdc-checkbox"
+				<div className="mdc-radio"
+					style={mdcStyle}
 					ref={el => this.divElement = el}>
-					<input type="checkbox"
+					<input type="radio"
 						name={this.props.name}
+						value={this.props.value}
 						onChange={this.handleChange}
 						defaultChecked={this.props.defaultChecked}
-						className="mdc-checkbox__native-control"/>
-						<div className="mdc-checkbox__background">
-							<svg className="mdc-checkbox__checkmark"
-								viewBox="0 0 24 24">
-								<path className="mdc-checkbox__checkmark__path"
-									fill="none"
-									stroke="white"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-							</svg>
-							<div className="mdc-checkbox__mixedmark"></div>
-						</div>
+						className="mdc-radio__native-control"/>
+					<div className="mdc-radio__background">
+						<div className="mdc-radio__outer-circle"></div>
+						<div className="mdc-radio__inner-circle"></div>
+					</div>
 				</div>
 				<div style={divStyle}>{this.props.label}</div>
 			</label>

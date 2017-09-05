@@ -38,7 +38,7 @@ export default class Button extends Component {
 
 		return (
 			<button className={classes}
-				ref={(el) => this.buttonElement = el}
+				ref={el => this.buttonElement = el}
 				type={this.props.type}
 				disabled={this.props.disabled}
 				onClick={this.handleClick}

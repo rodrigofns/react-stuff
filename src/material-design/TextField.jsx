@@ -56,7 +56,7 @@ export default class TextField extends Component {
 			<div className="mdc-textfield"
 				style={fieldStyle}
 				data-mdc-auto-init="MDCTextfield"
-				ref={(el) => this.divElement = el}>
+				ref={el => this.divElement = el}>
 				<input type="text"
 					name={this.props.name}
 					className="mdc-textfield__input"
