@@ -10,3 +10,12 @@ a {
 li {
 	line-height: 125%;
 }
+
+/* Ajustes no material-design-web */
+
+.mdc-textfield--upgraded:not(.mdc-textfield--fullwidth):not(.mdc-textfield--box):not(.mdc-textfield--multiline) {
+	height: auto !important;
+}
+.mdc-textfield__input {
+	letter-spacing: normal !important;
+}
