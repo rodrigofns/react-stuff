@@ -38,6 +38,10 @@ export default class Button extends Component {
 			(this.props.primary ? ' mdc-button--primary' : '') +
 			(this.props.raised ? ' mdc-button--raised' : '');
 
+		if (this.props.raised && !this.props.accent && !this.props.primary) {
+			classes += ' mdc-button--primary';
+		}
+
 		return (
 			<button className={classes}
 				ref={el => this.buttonElement = el}

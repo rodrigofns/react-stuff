@@ -33,7 +33,7 @@ export default class Films extends Component {
 		return (
 			<div>
 				<h1>Films</h1>
-				<Button raised primary
+				<Button raised
 					disabled={this.state.loading}
 					onClick={this.recarrega}>Reload</Button>
 				{this.state.loading ? (
