@@ -24,6 +24,16 @@
 	display: inline-block;
 }
 
+.Switch-wrapLabel {
+	display: inline-block;
+}
+.Switch-children {
+	display: inline-block;
+	margin-left: 8px;
+	cursor: pointer;
+	user-select: none;
+}
+
 .TextField-mdcWrap {
 	height: auto;
 	margin-top: 24px;
