@@ -5,7 +5,8 @@ export default class Avisador extends Component {
 	static propTypes = {
 		nome: PropTypes.string.isRequired,
 		local: PropTypes.string.isRequired,
-		nacional: PropTypes.bool.isRequired
+		nacional: PropTypes.bool.isRequired,
+		quale: PropTypes.string.isRequired
 	}
 
 	render() {
@@ -14,6 +15,7 @@ export default class Avisador extends Component {
 				<div>Nome: {this.props.nome}</div>
 				<div>Local: {this.props.local}</div>
 				<div>Nacional: {this.props.nacional ? 'sim' : 'não'}</div>
+				<div>Qualé: {this.props.quale}</div>
 			</div>
 		);
 	}

@@ -5,12 +5,12 @@ import Avisador from './Avisador';
 export default class Form extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { nome: '', local: '', nacional: false };
+		this.state = { nome: '', local: '', nacional: false, quale: '' };
 	}
 
 	mudou = (vals) => {
 		let newState = { };
-		['nome', 'nacional', 'local'].forEach(p => {
+		['nome', 'nacional', 'local', 'quale'].forEach(p => {
 			if (vals.hasOwnProperty(p)) {
 				newState[p] = vals[p];
 			}
@@ -27,7 +27,8 @@ export default class Form extends Component {
 				<h2>Avisador</h2>
 				<Avisador nome={this.state.nome}
 					local={this.state.local}
-					nacional={this.state.nacional}/>
+					nacional={this.state.nacional}
+					quale={this.state.quale}/>
 			</div>
 		);
 	}
