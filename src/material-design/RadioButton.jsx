@@ -7,6 +7,7 @@ import { MDCRadio } from '@material/radio/dist/mdc.radio.min.js';
 export default class RadioButton extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
+		disabled: PropTypes.oneOf([true, false, 'disabled']),
 		value: PropTypes.string.isRequired,
 		_name: PropTypes.string,
 		_onClick: PropTypes.func
@@ -37,13 +38,17 @@ export default class RadioButton extends Component {
 	}
 
 	render() {
+		let classes = 'mdc-radio RadioButton-mdcRadio' +
+			(this.props.disabled ? ' mdc-radio--disabled' : '');
+
 		return (
 			<label className="RadioButton-wrapLabel">
-				<div className="mdc-radio RadioButton-mdcRadio"
+				<div className={classes}
 					ref={el => this.divElement = el}>
 					<input type="radio"
 						name={this.props._name}
 						value={this.props.value}
+						disabled={this.props.disabled}
 						defaultChecked={this.props.defaultChecked}
 						onClick={this.handleClick}
 						className="mdc-radio__native-control"/>

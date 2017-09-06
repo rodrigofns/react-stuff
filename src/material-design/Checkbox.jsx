@@ -7,7 +7,7 @@ import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min.js';
 export default class Checkbox extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
-		label: PropTypes.string.isRequired,
+		disabled: PropTypes.oneOf([true, false, 'disabled']),
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
@@ -36,12 +36,16 @@ export default class Checkbox extends Component {
 	}
 
 	render() {
+		let classes = 'mdc-checkbox' +
+			(this.props.disabled ? ' mdc-checkbox--disabled' : '');
+
 		return (
 			<label className="Checkbox-wrapLabel">
-				<div className="mdc-checkbox"
+				<div className={classes}
 					ref={el => this.divElement = el}>
 					<input type="checkbox"
 						name={this.props.name}
+						disabled={this.props.disabled}
 						onChange={this.handleChange}
 						defaultChecked={this.props.defaultChecked}
 						className="mdc-checkbox__native-control"/>
@@ -57,7 +61,7 @@ export default class Checkbox extends Component {
 						</div>
 				</div>
 				<div className="Checkbox-children">
-					{this.props.label}
+					{this.props.children}
 				</div>
 			</label>
 		);

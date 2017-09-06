@@ -18,10 +18,10 @@ export default class Campos extends Component {
 	render() {
 		return (
 			<div>
-				<TextField label="Nome" name="nome" onChange={this.handleChange} size="22" autoFocus/>
-				<Checkbox label="Nacional" name="nacional" onChange={this.handleChange}/>
+				<TextField name="nome" label="Nome" onChange={this.handleChange} size="22" autoFocus/>
+				<Checkbox name="nacional" onChange={this.handleChange}>Nacional</Checkbox>
 				<br/>
-				<TextField label="Local" name="local" onChange={this.handleChange}/>
+				<TextField name="local" label="Local" onChange={this.handleChange}/>
 				<RadioGroup name="quale" onChange={this.handleChange}>
 					<RadioButton value="bom">Bom</RadioButton>
 					<RadioButton value="ruim" defaultChecked>Ruim</RadioButton>
