@@ -1,9 +1,21 @@
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
+import RadioButton from './RadioButton';
 
 export default class RadioGroup extends Component {
 	static propTypes = {
-		children: PropTypes.arrayOf(PropTypes.element),
+		children: (props, propName, componentName) => {
+			let retErr = null;
+			const prop = props[propName];
+			Children.forEach(prop, child => {
+				if (child.type !== RadioButton) {
+					retErr = new Error('RadioGroup error: ' +
+						'Invalid child "' + child.type + '", ' +
+						'should be RadioButton only.');
+				}
+			});
+			return retErr;
+		},
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
