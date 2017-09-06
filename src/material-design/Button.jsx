@@ -8,6 +8,7 @@ export default class Button extends Component {
 	static propTypes = {
 		accent: PropTypes.oneOf([true, false, 'accent']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		id: PropTypes.string,
 		primary: PropTypes.oneOf([true, false, 'primary']),
 		raised: PropTypes.oneOf([true, false, 'raised']),
 		type: PropTypes.oneOf(['button', 'submit', 'reset']),
@@ -41,6 +42,7 @@ export default class Button extends Component {
 			<button className={classes}
 				ref={el => this.buttonElement = el}
 				type={this.props.type}
+				id={this.props.id}
 				disabled={this.props.disabled}
 				onClick={this.handleClick}
 				data-mdc-auto-init="MDCRipple">

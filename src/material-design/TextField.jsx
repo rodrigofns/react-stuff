@@ -9,6 +9,7 @@ export default class TextField extends Component {
 		autoFocus: PropTypes.oneOf([true, false, 'autoFocus']),
 		defaultValue: PropTypes.string,
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		id: PropTypes.string,
 		label: PropTypes.string.isRequired,
 		name: PropTypes.string.isRequired,
 		size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -52,6 +53,7 @@ export default class TextField extends Component {
 				ref={el => this.divElement = el}>
 				<input type="text"
 					name={this.props.name}
+					id={this.props.id}
 					className="mdc-textfield__input TextField-input"
 					disabled={this.props.disabled}
 					size={this.props.size}

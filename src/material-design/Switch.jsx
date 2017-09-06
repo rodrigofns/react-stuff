@@ -7,6 +7,7 @@ export default class Switch extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		id: PropTypes.string,
 		name: PropTypes.string,
 		onChange: PropTypes.func
 	}
@@ -45,6 +46,7 @@ export default class Switch extends Component {
 				<div className={classes}>
 					<input type="checkbox"
 						name={this.props.name}
+						id={this.props.id}
 						disabled={this.props.disabled}
 						defaultChecked={this.props.defaultChecked}
 						onChange={this.handleChange}

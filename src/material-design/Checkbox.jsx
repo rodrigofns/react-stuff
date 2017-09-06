@@ -8,6 +8,7 @@ export default class Checkbox extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		id: PropTypes.string,
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
@@ -45,6 +46,7 @@ export default class Checkbox extends Component {
 					ref={el => this.divElement = el}>
 					<input type="checkbox"
 						name={this.props.name}
+						id={this.props.id}
 						disabled={this.props.disabled}
 						onChange={this.handleChange}
 						defaultChecked={this.props.defaultChecked}

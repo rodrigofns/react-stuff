@@ -8,6 +8,7 @@ export default class RadioButton extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		id: PropTypes.string,
 		value: PropTypes.string.isRequired,
 		_name: PropTypes.string,
 		_onClick: PropTypes.func
@@ -47,6 +48,7 @@ export default class RadioButton extends Component {
 					ref={el => this.divElement = el}>
 					<input type="radio"
 						name={this.props._name}
+						id={this.props.id}
 						value={this.props.value}
 						disabled={this.props.disabled}
 						defaultChecked={this.props.defaultChecked}
