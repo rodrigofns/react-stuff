@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/button/dist/mdc.button.min.css';
+import './fixes.css';
 import { MDCRipple } from '@material/ripple/dist/mdc.ripple.min.js';
 
 export default class Button extends Component {

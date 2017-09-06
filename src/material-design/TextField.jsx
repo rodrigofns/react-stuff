@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/textfield/dist/mdc.textfield.min.css';
+import './fixes.css';
 import { MDCTextfield } from '@material/textfield/dist/mdc.textfield.min.js';
 
 export default class TextField extends Component {
@@ -45,22 +46,13 @@ export default class TextField extends Component {
 	}
 
 	render() {
-		let fieldStyle = {
-			height: 'auto',
-			marginTop: '24px'
-		};
-		let inputStyle = {
-			letterSpacing: 'normal'
-		};
 		return (
-			<div className="mdc-textfield"
-				style={fieldStyle}
+			<div className="mdc-textfield TextField-mdcWrap"
 				data-mdc-auto-init="MDCTextfield"
 				ref={el => this.divElement = el}>
 				<input type="text"
 					name={this.props.name}
-					className="mdc-textfield__input"
-					style={inputStyle}
+					className="mdc-textfield__input TextField-input"
 					disabled={this.props.disabled}
 					size={this.props.size}
 					defaultValue={this.props.defaultValue}

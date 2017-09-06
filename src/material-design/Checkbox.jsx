@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/checkbox/dist/mdc.checkbox.min.css';
+import './fixes.css';
 import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min.js';
 
 export default class Checkbox extends Component {
@@ -35,19 +36,8 @@ export default class Checkbox extends Component {
 	}
 
 	render() {
-		let labelStyle = {
-			display: 'inline-block'
-		};
-		let divStyle = {
-			display: 'inline-block',
-			paddingBottom: '10px',
-			cursor: 'pointer',
-			MozUserSelect: 'none',
-			WebkitUserSelect: 'none',
-			msUserSelect: 'none'
-		};
 		return (
-			<label style={labelStyle}>
+			<label className="Checkbox-wrapLabel">
 				<div className="mdc-checkbox"
 					ref={el => this.divElement = el}>
 					<input type="checkbox"
@@ -66,7 +56,9 @@ export default class Checkbox extends Component {
 							<div className="mdc-checkbox__mixedmark"></div>
 						</div>
 				</div>
-				<div style={divStyle}>{this.props.label}</div>
+				<div className="Checkbox-children">
+					{this.props.label}
+				</div>
 			</label>
 		);
 	}

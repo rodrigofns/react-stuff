@@ -1,21 +1,10 @@
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './RadioButton';
+import './fixes.css';
 
 export default class RadioGroup extends Component {
 	static propTypes = {
-		children: (props, propName, componentName) => {
-			let retErr = null;
-			const prop = props[propName];
-			Children.forEach(prop, child => {
-				if (child.type !== RadioButton) {
-					retErr = new Error('RadioGroup error: ' +
-						'Invalid child "' + child.type + '", ' +
-						'should be RadioButton only.');
-				}
-			});
-			return retErr;
-		},
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
@@ -33,15 +22,17 @@ export default class RadioGroup extends Component {
 	}
 
 	render() {
-		let wrapStyle = { display: 'inline-block' };
-		let elems = Children.map(this.props.children, ch => {
-			return React.cloneElement(ch, {
-				_name: this.props.name,
-				_onClick: this.handleClick
-			});
+		let elems = Children.map(this.props.children, child => {
+			if (child.type === RadioButton) {
+				return React.cloneElement(child, {
+					_name: this.props.name,
+					_onClick: this.handleClick
+				});
+			}
+			return child;
 		});
 		return (
-			<div style={wrapStyle}>
+			<div className="RadioGroup-wrap">
 				{elems}
 			</div>
 		);

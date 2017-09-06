@@ -23,8 +23,9 @@ export default class Campos extends Component {
 				<br/>
 				<TextField label="Local" name="local" onChange={this.handleChange}/>
 				<RadioGroup name="quale" onChange={this.handleChange}>
-					<RadioButton label="Bom" value="bom"/>
-					<RadioButton label="Ruim" value="ruim" defaultChecked/>
+					<RadioButton value="bom">Bom</RadioButton>
+					<RadioButton value="ruim" defaultChecked>Ruim</RadioButton>
+					<RadioButton value="indiferente">Indiferente</RadioButton>
 				</RadioGroup>
 			</div>
 		);

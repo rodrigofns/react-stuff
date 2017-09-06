@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/radio/dist/mdc.radio.min.css';
+import './fixes.css';
 import { MDCRadio } from '@material/radio/dist/mdc.radio.min.js';
 
 export default class RadioButton extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
-		label: PropTypes.string.isRequired,
 		value: PropTypes.string.isRequired,
 		_name: PropTypes.string,
 		_onClick: PropTypes.func
@@ -37,23 +37,9 @@ export default class RadioButton extends Component {
 	}
 
 	render() {
-		let labelStyle = {
-			display: 'inline-block'
-		};
-		let mdcStyle = {
-			top: '13px'
-		};
-		let divStyle = {
-			display: 'inline-block',
-			cursor: 'pointer',
-			MozUserSelect: 'none',
-			WebkitUserSelect: 'none',
-			msUserSelect: 'none'
-		};
 		return (
-			<label style={labelStyle}>
-				<div className="mdc-radio"
-					style={mdcStyle}
+			<label className="RadioButton-wrapLabel">
+				<div className="mdc-radio RadioButton-mdcRadio"
 					ref={el => this.divElement = el}>
 					<input type="radio"
 						name={this.props._name}
@@ -66,7 +52,9 @@ export default class RadioButton extends Component {
 						<div className="mdc-radio__inner-circle"></div>
 					</div>
 				</div>
-				<div style={divStyle}>{this.props.label}</div>
+				<div className="RadioButton-children">
+					{this.props.children}
+				</div>
 			</label>
 		);
 	}
