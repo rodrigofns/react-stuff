@@ -8,12 +8,14 @@ export default class Form extends Component {
 		this.state = { nome: '', local: '', nacional: false };
 	}
 
-	mudou = (val) => {
-		this.setState({
-			nome: val.nome,
-			local: val.local,
-			nacional: val.nacional
+	mudou = (vals) => {
+		let newState = { };
+		['nome', 'nacional', 'local'].forEach(p => {
+			if (vals.hasOwnProperty(p)) {
+				newState[p] = vals[p];
+			}
 		});
+		this.setState(newState);
 	}
 
 	render() {

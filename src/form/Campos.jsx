@@ -8,27 +8,17 @@ export default class Campos extends Component {
 		mudouAlgo: PropTypes.func
 	}
 
-	constructor(props) {
-		super(props);
-		this.state = { nome: '', local: '', nacional: false };
-	}
-
 	handleChange = (e) => {
-		this.setState({ [e.target.name]: e.target.value },
-			() => {
-				this.props.mudouAlgo({
-					nome: this.state.nome,
-					local: this.state.local,
-					nacional: this.state.nacional
-				});
-			});
+		this.props.mudouAlgo({
+			[e.target.name]: e.target.value
+		});
 	}
 
 	render() {
 		return (
 			<div>
 				<TextField label="Nome" name="nome" onChange={this.handleChange} size="22" autoFocus/>
-				<Checkbox name="nacional" label="Nacional" onChange={this.handleChange}/>
+				<Checkbox label="Nacional" name="nacional" onChange={this.handleChange}/>
 				<br/>
 				<TextField label="Local" name="local" onChange={this.handleChange}/>
 			</div>
