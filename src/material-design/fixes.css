@@ -8,6 +8,18 @@
 	user-select: none;
 }
 
+body.mdc-dialog-scroll-lock {
+	color: inherit;
+}
+.Dialog-body {
+	color: inherit !important;
+}
+.Dialog-surface {
+	width: auto !important;
+	min-width: 0 !important;
+	max-width: none !important;
+}
+
 .RadioButton-wrapLabel {
 	display: inline-block;
 }
