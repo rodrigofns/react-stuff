@@ -1,0 +1,28 @@
+# React Material Design
+
+A simple [React](https://facebook.github.io/react/) wrapper to Google's [Material Components for the web](https://github.com/material-components/material-components-web).
+
+#### There are other implementations of [Material Design guidelines](https://material.io/guidelines/) for React, so why this one?
+
+Indeed, I've found other implementations, but none of them had all the components 100% perfect to my tastes. I'm not a blogger or an academic, I actually work on very large, country-wide corporate systems with large teams. I need things to be simple, and I need them to just work, so I decided to write an implementation to fulfill my needs.
+
+#### Is this an implementation of Material Design specs?
+
+No. This is a very thin React wrapper to [Material Components for the web](https://github.com/material-components/material-components-web), a pure CSS/JavaScript implementation made by people [from Google](https://material.io/components/).
+
+#### Why the "fixes.css" file? Why overwrite some component styles?
+
+Because some things needed further styling to look correct on my projects. I took all the CSS modifications and shipped them in the "fixes.css" file. Some adjustments were triggered by usage need: for example, I don't want to always use ID attributes on inputs and labels, so I [wrap the label tag around the input](https://stackoverflow.com/q/11992026) almost always. And while doing this, the alignment went all wrong &ndash; further styling was needed. This allows the components to "just work" as demonstrated in the examples found in the docs. Other things are cosmetic that I just disagree: why the extra letter spacing on input texts? It looks weird! Why all-caps button texts? If I want all caps, I just write it all-caps.
+
+#### Should I use this library?
+
+This library has been battle-tested on large real world projects, the usage looks pretty simple to me. So take a look at the examples: if you like the way the components are used, then go ahead and test it.
+
+#### What components are available?
+
+- [Button](docs/Button.md)
+- [Checkbox](docs/Checkbox.md)
+- [Dialog](docs/Dialog.md)
+- [Radio](docs/Radio.md)
+- [Switch](docs/Switch.md)
+- [TextField](docs/TextField.md)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from '../material-design/Button';
-import Dialog, { DialogHeader, DialogFooter } from '../material-design/Dialog';
+import Button from '../react-material-design/src/Button';
+import Dialog, { DialogHeader, DialogFooter } from '../react-material-design/src/Dialog';
 
 class Outra extends Component {
 	render() {
