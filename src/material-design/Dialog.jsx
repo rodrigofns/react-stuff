@@ -1,33 +1,23 @@
-import React, { Component } from 'react';
+import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/dialog/dist/mdc.dialog.min.css';
 import './fixes.css';
 import { MDCDialog } from '@material/dialog/dist/mdc.dialog.min.js';
+import DialogHeader from './DialogHeader';
+import DialogFooter from './DialogFooter';
+
+export { DialogHeader, DialogFooter };
 
 export default class Dialog extends Component {
 	static propTypes = {
-		id: PropTypes.string.isRequired
+		id: PropTypes.string.isRequired,
+		width: PropTypes.string,
+		minWidth: PropTypes.string,
+		maxWidth: PropTypes.string
 	}
 
 	static _mdcComponents = [];
 	static _callbacks = [];
-
-	componentDidMount() {
-		this.mdcComponent = new MDCDialog(this.asideElement);
-		let dismiss = () => {
-			if (Dialog._callbacks[this.props.id]) {
-				Dialog._callbacks[this.props.id]();
-			}
-		};
-		this.mdcComponent.listen('MDCDialog:accept', dismiss);
-		this.mdcComponent.listen('MDCDialog:cancel', dismiss);
-		Dialog._mdcComponents[this.props.id] = this.mdcComponent;
-	}
-
-	componentWillUnmount() {
-		this.mdcComponent.destroy();
-		delete Dialog._mdcComponents[this.props.id];
-	}
 
 	static show(componentId, callback) {
 		Dialog._mdcComponents[componentId].show();
@@ -41,36 +31,60 @@ export default class Dialog extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.mdcComponent = new MDCDialog(this.asideElement);
+		let dismiss = () => {
+			if (Dialog._callbacks[this.props.id]) {
+				Dialog._callbacks[this.props.id]();
+			}
+		};
+		this.mdcComponent.listen('MDCDialog:accept', dismiss);
+		this.mdcComponent.listen('MDCDialog:cancel', dismiss);
+
+		Dialog._mdcComponents[this.props.id] = this.mdcComponent;
+	}
+
+	componentWillUnmount() {
+		this.mdcComponent.destroy();
+		delete Dialog._mdcComponents[this.props.id];
+	}
+
+	extractChild(children, component) {
+		let childIdx = children.findIndex(ce => ce.type === component);
+		return childIdx === -1 ? null : children.splice(childIdx, 1);
+	}
+
+	computeSurfaceStyle() {
+		let surfaceStyle = {
+			width: 'auto',
+			minWidth: 0,
+			maxWidth: 'none'
+		};
+		['width', 'minWidth', 'maxWidth'].forEach(p => {
+			if (this.props[p]) {
+				surfaceStyle[p] = this.props[p];
+			}
+		});
+		return surfaceStyle;
+	}
+
 	render() {
-		// return (
-		// 	<aside className="mdc-dialog"
-		// 		id={this.props.id}
-		// 		ref={el => this.asideElement = el}>
-		// 		<div className="mdc-dialog__surface">
-		// 			<header className="mdc-dialog__header">
-		// 				<h2 className="mdc-dialog__header__title">
-		// 					{this.props.title}
-		// 				</h2>
-		// 			</header>
-		// 			<section className="mdc-dialog__body">
-		// 				{this.props.children}
-		// 			</section>
-		// 			<footer className="mdc-dialog__footer">
-		// 				<button type="button" className="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Decline</button>
-		// 				<button type="button" className="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Accept</button>
-		// 			</footer>
-		// 		</div>
-		// 		<div className="mdc-dialog__backdrop"></div>
-		// 	</aside>
-		// );
+		let elems = Children.toArray(this.props.children);
+		let header = this.extractChild(elems, DialogHeader);
+		let footer = this.extractChild(elems, DialogFooter);
+		let surfaceStyle = this.computeSurfaceStyle();
+
 		return (
 			<aside className="mdc-dialog"
 				id={this.props.id}
 				ref={el => this.asideElement = el}>
-				<div className="mdc-dialog__surface Dialog-surface">
+				<div className="mdc-dialog__surface"
+					style={surfaceStyle}>
+					{header}
 					<section className="mdc-dialog__body Dialog-body">
-						{this.props.children}
+						{elems}
 					</section>
+					{footer}
 				</div>
 				<div className="mdc-dialog__backdrop"></div>
 			</aside>

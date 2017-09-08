@@ -11,13 +11,15 @@
 body.mdc-dialog-scroll-lock {
 	color: inherit;
 }
+.Dialog-header {
+	display: block !important;
+}
 .Dialog-body {
 	color: inherit !important;
 }
-.Dialog-surface {
-	width: auto !important;
-	min-width: 0 !important;
-	max-width: none !important;
+.Dialog-footer {
+	display: block !important;
+	text-align: right;
 }
 
 .RadioButton-wrapLabel {

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Button from '../material-design/Button';
-import Dialog from '../material-design/Dialog';
+import Dialog, { DialogHeader, DialogFooter } from '../material-design/Dialog';
 
 class Outra extends Component {
 	render() {
 		return (
-			<Dialog id="outra" title="Outra">
+			<Dialog id="outra">
 				Texto texto<br/>
-				<Button raised onClick={() => Dialog.close('outra')}>Fecha</Button>
+				<DialogFooter>
+					<Button raised onClick={() => Dialog.close('outra')}>Fecha</Button>
+				</DialogFooter>
 			</Dialog>
 		);
 	}
@@ -26,11 +28,14 @@ export default class Home extends Component {
 				<h1>Home</h1>
 				<p>Hey.</p>
 				<Button raised onClick={this.abre1}>Pipocar</Button>
-				<Dialog id="pop" title="Esta é uma janela">
+				<Dialog id="pop" width="300px">
+					<DialogHeader>Título</DialogHeader>
 					Primeiro popup.<br/>
 					Opções.<br/>
-					<Button raised onClick={() => Dialog.show('outra')}>Outra</Button>{' '}
-					<Button raised onClick={() => Dialog.close('pop', 'oi')}>Fecha</Button>
+					<DialogFooter>
+						<Button raised onClick={() => Dialog.show('outra')}>Outra</Button>{' '}
+						<Button raised onClick={() => Dialog.close('pop', 'oi')}>Fecha</Button>
+					</DialogFooter>
 				</Dialog>
 				<Outra/>
 			</div>
