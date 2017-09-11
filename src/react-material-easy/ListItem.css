@@ -1,0 +1,31 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-Drawer-wrap .rme-ListItem-wrap:before {
+	content: normal;
+}
+
+.rme-Drawer-wrap .rme-ListItem-wrap {
+	padding: 0;
+}
+
+.rme-ListItem-wrap > a {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0 16px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.rme-ListItem-wrap > a:hover {
+	background-color: #fafafa;
+}
+
+.rme-ListItem-wrap > a:active {
+	background-color: #f0f0f0;
+}

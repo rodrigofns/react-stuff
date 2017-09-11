@@ -7,5 +7,7 @@
 import React from 'react';
 
 export const LayoutFooter = (props) => (
-	<footer>{props.children}</footer>
+	<footer>
+		{props.children}
+	</footer>
 );

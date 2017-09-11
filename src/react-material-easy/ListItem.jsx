@@ -6,7 +6,10 @@
 
 import React from 'react';
 import '@material/list/dist/mdc.list.min.css';
+import './ListItem.css';
 
 export const ListItem = (props) => (
-	<li className="mdc-list-item">{props.children}</li>
+	<li className="mdc-list-item rme-ListItem-wrap">
+		{props.children}
+	</li>
 );
