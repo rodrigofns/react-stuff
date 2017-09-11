@@ -4,6 +4,7 @@ import {
 	Drawer,
 	Layout,
 	LayoutBody,
+	LayoutFooter,
 	ListItem,
 	ListSeparator,
 	Toolbar,
@@ -59,6 +60,9 @@ export default class App extends Component {
 						<Route path="/films" component={Films}/>
 						<Route path="/form" component={Form}/>
 					</LayoutBody>
+					<LayoutFooter>
+						123456
+					</LayoutFooter>
 				</Layout>
 			</BrowserRouter>
 		);

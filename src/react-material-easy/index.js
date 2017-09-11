@@ -12,6 +12,7 @@ export { DialogHeader } from './DialogHeader';
 export { Drawer } from './Drawer';
 export { Layout } from './Layout';
 export { LayoutBody } from './LayoutBody';
+export { LayoutFooter } from './LayoutFooter';
 export { List } from './List';
 export { ListItem } from './ListItem';
 export { ListSeparator } from './ListSeparator';
