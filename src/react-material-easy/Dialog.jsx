@@ -4,7 +4,7 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-import React, { Children, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/dialog/dist/mdc.dialog.min.css';
 import './Dialog.css';
@@ -69,10 +69,12 @@ export class Dialog extends Component {
 	}
 
 	render() {
-		let elems = Children.toArray(this.props.children);
-		let header = Util.extractChild(elems, DialogHeader);
-		let footer = Util.extractChild(elems, DialogFooter);
 		let surfaceStyle = this.computeSurfaceStyle();
+		let elems = Util.filterChildren(this.props.children, {
+			header: DialogHeader,
+			footer: DialogFooter,
+			leftovers: null
+		});
 
 		return (
 			<aside
@@ -82,11 +84,11 @@ export class Dialog extends Component {
 				<div
 					className="mdc-dialog__surface"
 					style={surfaceStyle}>
-					{header}
+					{elems.header}
 					<section className="mdc-dialog__body rme-Dialog-body">
-						{elems}
+						{elems.leftovers}
 					</section>
-					{footer}
+					{elems.footer}
 				</div>
 				<div className="mdc-dialog__backdrop"></div>
 			</aside>

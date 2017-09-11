@@ -4,22 +4,46 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-export default class Util {
-	static extractChild(childrenArray, component) {
-		let childIdx = childrenArray.findIndex(ce => ce.type === component);
-		return childIdx === -1 ? null : childrenArray.splice(childIdx, 1);
-	}
+import { Children } from 'react';
 
-	static extractChildren(childrenArray, componentsArray) {
-		let extracted = [];
-		let i = 0;
-		while (i < childrenArray.length) {
-			if (componentsArray.indexOf(childrenArray[i].type) !== -1) {
-				extracted.push(childrenArray.splice(i, 1)[0]);
-			} else {
-				++i;
+export default class Util {
+	static filterChildren(propsChildren, namesAndComponents) {
+		let objRet = { };
+		let children = Children.toArray(propsChildren);
+		let names = Object.keys(namesAndComponents);
+		let leftovers = names.find(name => namesAndComponents[name] === null);
+
+		if (leftovers) {
+			objRet[leftovers] = [];
+		}
+
+		for (let c = 0; c < children.length; ++c) {
+			let child = children[c];
+			let wasAdded = false;
+
+			for (let n = 0; n < names.length; ++n) {
+				let name = names[n];
+				let component = namesAndComponents[name];
+
+				if (child.type === component) {
+					if (objRet[name] === undefined) {
+						objRet[name] = child;
+					} else if (Array.isArray(objRet[name])) {
+						objRet[name].push(child);
+					} else {
+						objRet[name] = [objRet[name], child];
+					}
+
+					wasAdded = true;
+					break;
+				}
+			}
+
+			if (!wasAdded && leftovers) {
+				objRet[leftovers].push(child);
 			}
 		}
-		return extracted;
+
+		return objRet;
 	}
 }

@@ -4,7 +4,7 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-import React, { Children } from 'react';
+import React from 'react';
 import '@material/toolbar/dist/mdc.toolbar.min.css';
 import './Layout.css';
 import { Drawer } from './Drawer';
@@ -14,20 +14,21 @@ import { Toolbar } from './Toolbar';
 import Util from './Util';
 
 export const Layout = (props) => {
-	let elems = Children.toArray(props.children);
-	let toolbar = Util.extractChild(elems, Toolbar);
-	let drawer = Util.extractChild(elems, Drawer);
-	let layoutBody = Util.extractChild(elems, LayoutBody);
-	let layoutFooter = Util.extractChild(elems, LayoutFooter);
+	let elems = Util.filterChildren(props.children, {
+		toolbar: Toolbar,
+		drawer: Drawer,
+		body: LayoutBody,
+		footer: LayoutFooter
+	});
 
 	return (
 		<div className="rme-Layout-wrapper">
-			{toolbar}
+			{elems.toolbar}
 			<div className="mdc-toolbar-fixed-adjust rme-Layout-body">
-				{drawer}
-				{layoutBody}
+				{elems.drawer}
+				{elems.body}
 			</div>
-			{layoutFooter}
+			{elems.footer}
 		</div>
 	);
 };
