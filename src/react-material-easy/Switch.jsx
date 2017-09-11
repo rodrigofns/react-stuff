@@ -1,9 +1,15 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/switch/dist/mdc.switch.min.css';
-import './fixes.css';
+import './Switch.css';
 
-export default class Switch extends Component {
+export class Switch extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
@@ -23,7 +29,7 @@ export default class Switch extends Component {
 		}
 	}
 
-	handleChange = (e) => {
+	handleChange = (ev) => {
 		this.setState({ checked: !this.state.checked }, () => {
 			if (this.props.onChange) {
 				this.props.onChange({
@@ -42,20 +48,22 @@ export default class Switch extends Component {
 			(this.props.disabled ? ' mdc-switch--disabled' : '');
 
 		return (
-			<label className="Switch-wrapLabel">
+			<label className="rme-Switch-wrapLabel">
 				<div className={classes}>
-					<input type="checkbox"
-						name={this.props.name}
+					<input
+						className="mdc-switch__native-control"
 						id={this.props.id}
-						disabled={this.props.disabled}
 						defaultChecked={this.props.defaultChecked}
+						disabled={this.props.disabled}
+						name={this.props.name}
+						type="checkbox"
 						onChange={this.handleChange}
-						className="mdc-switch__native-control"/>
+						/>
 					<div className="mdc-switch__background">
 						<div className="mdc-switch__knob"></div>
 					</div>
 				</div>
-				<div className="Switch-children">
+				<div className="rme-Switch-children">
 					{this.props.children}
 				</div>
 			</label>

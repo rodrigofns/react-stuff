@@ -1,10 +1,16 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/radio/dist/mdc.radio.min.css';
-import './fixes.css';
+import './RadioButton.css';
 import { MDCRadio } from '@material/radio/dist/mdc.radio.min.js';
 
-export default class RadioButton extends Component {
+export class RadioButton extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
 		disabled: PropTypes.oneOf([true, false, 'disabled']),
@@ -26,7 +32,7 @@ export default class RadioButton extends Component {
 		this.mdcComponent.destroy();
 	}
 
-	handleClick = (e) => {
+	handleClick = (ev) => {
 		if (this.props._onClick) {
 			this.props._onClick({
 				target: {
@@ -39,27 +45,30 @@ export default class RadioButton extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-radio RadioButton-mdcRadio' +
+		let classes = 'mdc-radio rme-RadioButton-mdcRadio' +
 			(this.props.disabled ? ' mdc-radio--disabled' : '');
 
 		return (
-			<label className="RadioButton-wrapLabel">
-				<div className={classes}
+			<label className="rme-RadioButton-wrapLabel">
+				<div
+					className={classes}
 					ref={el => this.divElement = el}>
-					<input type="radio"
-						name={this.props._name}
-						id={this.props.id}
-						value={this.props.value}
-						disabled={this.props.disabled}
+					<input
+						className="mdc-radio__native-control"
 						defaultChecked={this.props.defaultChecked}
+						disabled={this.props.disabled}
+						id={this.props.id}
+						name={this.props._name}
+						type="radio"
+						value={this.props.value}
 						onClick={this.handleClick}
-						className="mdc-radio__native-control"/>
+						/>
 					<div className="mdc-radio__background">
 						<div className="mdc-radio__outer-circle"></div>
 						<div className="mdc-radio__inner-circle"></div>
 					</div>
 				</div>
-				<div className="RadioButton-children">
+				<div className="rme-RadioButton-children">
 					{this.props.children}
 				</div>
 			</label>

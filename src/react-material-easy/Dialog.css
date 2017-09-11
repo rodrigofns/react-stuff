@@ -1,0 +1,13 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+body.mdc-dialog-scroll-lock {
+	color: inherit;
+}
+
+.rme-Dialog-body {
+	color: inherit !important;
+}

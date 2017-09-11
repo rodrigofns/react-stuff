@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import {
+	Drawer,
+	Layout,
+	LayoutBody,
+	ListItem,
+	ListSeparator,
+	Toolbar,
+	ToolbarTitle
+} from './react-material-easy';
 // import logo from './logo.svg';
 import './App.css';
 import Home from './home/Home';
@@ -20,19 +29,38 @@ export default class App extends Component {
 			// </div>
 
 			// https://reacttraining.com/react-router/web/example/basic
-			<Router>
-				<div>
-					<ul>
-						<li><Link to="/">Home</Link></li>
-						<li><Link to="/films">Films</Link></li>
-						<li><Link to="/form">Form</Link></li>
-					</ul>
-					<hr/>
-					<Route exact path="/" component={Home}/>
-					<Route path="/films" component={Films}/>
-					<Route path="/form" component={Form}/>
-				</div>
-			</Router>
+			// <Router>
+			// 	<div>
+			// 		<ul>
+			// 			<li><Link to="/">Home</Link></li>
+			// 			<li><Link to="/films">Films</Link></li>
+			// 			<li><Link to="/form">Form</Link></li>
+			// 		</ul>
+			// 		<hr/>
+			// 		<Route exact path="/" component={Home}/>
+			// 		<Route path="/films" component={Films}/>
+			// 		<Route path="/form" component={Form}/>
+			// 	</div>
+			// </Router>
+
+			<BrowserRouter>
+				<Layout>
+					<Toolbar>
+						<ToolbarTitle>Material girl app</ToolbarTitle>
+					</Toolbar>
+					<Drawer>
+						<ListItem><Link to="/">Home</Link></ListItem>
+						<ListSeparator/>
+						<ListItem><Link to="/films">Films</Link></ListItem>
+						<ListItem><Link to="/form">Form</Link></ListItem>
+					</Drawer>
+					<LayoutBody>
+						<Route exact path="/" component={Home}/>
+						<Route path="/films" component={Films}/>
+						<Route path="/form" component={Form}/>
+					</LayoutBody>
+				</Layout>
+			</BrowserRouter>
 		);
 	}
 }

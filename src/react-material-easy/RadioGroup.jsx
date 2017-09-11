@@ -1,20 +1,26 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
-import RadioButton from './RadioButton';
-import './fixes.css';
+import './RadioGroup.css';
+import { RadioButton } from './RadioButton';
 
-export default class RadioGroup extends Component {
+export class RadioGroup extends Component {
 	static propTypes = {
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
 	}
 
-	handleClick = (e) => {
+	handleClick = (ev) => {
 		if (this.props.onChange) {
 			this.props.onChange({
 				target: {
 					name: this.props.name,
-					value: e.target.value
+					value: ev.target.value
 				},
 				type: 'change'
 			});
@@ -31,8 +37,9 @@ export default class RadioGroup extends Component {
 			}
 			return child;
 		});
+
 		return (
-			<div className="RadioGroup-wrap">
+			<div className="rme-RadioGroup-wrap">
 				{elems}
 			</div>
 		);

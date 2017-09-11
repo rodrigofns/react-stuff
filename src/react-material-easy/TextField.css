@@ -1,0 +1,14 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-TextField-wrap {
+	height: auto;
+	margin-top: 24px;
+}
+
+.rme-TextField-input {
+	letter-spacing: normal !important;
+}

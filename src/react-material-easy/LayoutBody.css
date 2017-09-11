@@ -1,0 +1,11 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-LayoutBody-wrap {
+	flex-grow: 1;
+	overflow-y: auto;
+	padding-left: 16px;
+}

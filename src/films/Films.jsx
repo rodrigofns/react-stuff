@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ListaFilmes from './ListaFilmes';
-import Button from '../react-material-design/src/Button';
+import { Button } from '../react-material-easy';
 
 export default class Films extends Component {
 	constructor(props) {

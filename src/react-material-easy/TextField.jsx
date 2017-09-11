@@ -1,10 +1,16 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/textfield/dist/mdc.textfield.min.css';
-import './fixes.css';
+import './TextField.css';
 import { MDCTextfield } from '@material/textfield/dist/mdc.textfield.min.js';
 
-export default class TextField extends Component {
+export class TextField extends Component {
 	static propTypes = {
 		autoFocus: PropTypes.oneOf([true, false, 'autoFocus']),
 		defaultValue: PropTypes.string,
@@ -34,12 +40,12 @@ export default class TextField extends Component {
 		this.mdcComponent.destroy();
 	}
 
-	handleChange = (e) => {
+	handleChange = (ev) => {
 		if (this.props.onChange) {
 			this.props.onChange({
 				target: {
 					name: this.props.name,
-					value: e.target.value
+					value: ev.target.value
 				},
 				type: 'change'
 			});
@@ -48,19 +54,22 @@ export default class TextField extends Component {
 
 	render() {
 		return (
-			<div className="mdc-textfield TextField-mdcWrap"
+			<div
+				className="mdc-textfield rme-TextField-wrap"
 				data-mdc-auto-init="MDCTextfield"
 				ref={el => this.divElement = el}>
-				<input type="text"
-					name={this.props.name}
-					id={this.props.id}
-					className="mdc-textfield__input TextField-input"
-					disabled={this.props.disabled}
-					size={this.props.size}
+				<input
+					className="mdc-textfield__input rme-TextField-input"
 					defaultValue={this.props.defaultValue}
+					disabled={this.props.disabled}
+					id={this.props.id}
+					name={this.props.name}
+					size={this.props.size}
+					type="text"
 					onChange={this.handleChange}/>
-				<label htmlFor={this.props.name}
-					className="mdc-textfield__label">
+				<label
+					className="mdc-textfield__label"
+					htmlFor={this.props.name}>
 					{this.props.label}
 				</label>
 			</div>

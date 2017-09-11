@@ -1,0 +1,10 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-DialogFooter-wrap {
+	display: block !important;
+	text-align: right;
+}

@@ -1,0 +1,21 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+body {
+	margin: 0;
+}
+
+.rme-Layout-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.rme-Layout-body {
+	flex-grow: 1;
+	min-height: 0;
+	display: flex;
+}

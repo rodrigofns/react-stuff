@@ -1,0 +1,16 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-Switch-wrapLabel {
+	display: inline-block;
+}
+
+.rme-Switch-children {
+	display: inline-block;
+	margin-left: 8px;
+	cursor: pointer;
+	user-select: none;
+}

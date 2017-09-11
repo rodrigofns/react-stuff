@@ -1,14 +1,19 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/dialog/dist/mdc.dialog.min.css';
-import './fixes.css';
+import './Dialog.css';
 import { MDCDialog } from '@material/dialog/dist/mdc.dialog.min.js';
-import DialogHeader from './DialogHeader';
-import DialogFooter from './DialogFooter';
+import { DialogHeader } from './DialogHeader';
+import { DialogFooter } from './DialogFooter';
+import Util from './Util';
 
-export { DialogHeader, DialogFooter };
-
-export default class Dialog extends Component {
+export class Dialog extends Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
 		width: PropTypes.string,
@@ -49,11 +54,6 @@ export default class Dialog extends Component {
 		delete Dialog._mdcComponents[this.props.id];
 	}
 
-	extractChild(children, component) {
-		let childIdx = children.findIndex(ce => ce.type === component);
-		return childIdx === -1 ? null : children.splice(childIdx, 1);
-	}
-
 	computeSurfaceStyle() {
 		let surfaceStyle = {
 			width: 'auto',
@@ -70,18 +70,20 @@ export default class Dialog extends Component {
 
 	render() {
 		let elems = Children.toArray(this.props.children);
-		let header = this.extractChild(elems, DialogHeader);
-		let footer = this.extractChild(elems, DialogFooter);
+		let header = Util.extractChild(elems, DialogHeader);
+		let footer = Util.extractChild(elems, DialogFooter);
 		let surfaceStyle = this.computeSurfaceStyle();
 
 		return (
-			<aside className="mdc-dialog"
+			<aside
+				className="mdc-dialog"
 				id={this.props.id}
 				ref={el => this.asideElement = el}>
-				<div className="mdc-dialog__surface"
+				<div
+					className="mdc-dialog__surface"
 					style={surfaceStyle}>
 					{header}
-					<section className="mdc-dialog__body Dialog-body">
+					<section className="mdc-dialog__body rme-Dialog-body">
 						{elems}
 					</section>
 					{footer}
