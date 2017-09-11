@@ -6,6 +6,7 @@
 
 import React from 'react';
 import '@material/list/dist/mdc.list.min.css';
+import './List.css';
 import { ListItem } from './ListItem';
 import { ListSeparator } from './ListSeparator';
 
@@ -28,7 +29,7 @@ export const List = (props) => {
 				if (Array.isArray(block)) {
 					return (
 						<div className="mdc-list-group" key={i}>
-							<ul className="mdc-list">
+							<ul className="mdc-list rme-List-ul">
 								{block.map(it => it)}
 							</ul>
 						</div>

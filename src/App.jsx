@@ -28,21 +28,6 @@ export default class App extends Component {
 			// 	</p>
 			// </div>
 
-			// https://reacttraining.com/react-router/web/example/basic
-			// <Router>
-			// 	<div>
-			// 		<ul>
-			// 			<li><Link to="/">Home</Link></li>
-			// 			<li><Link to="/films">Films</Link></li>
-			// 			<li><Link to="/form">Form</Link></li>
-			// 		</ul>
-			// 		<hr/>
-			// 		<Route exact path="/" component={Home}/>
-			// 		<Route path="/films" component={Films}/>
-			// 		<Route path="/form" component={Form}/>
-			// 	</div>
-			// </Router>
-
 			<BrowserRouter>
 				<Layout>
 					<Toolbar>

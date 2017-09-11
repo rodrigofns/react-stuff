@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/button/dist/mdc.button.min.css';
+import './Button.css';
 import { MDCRipple } from '@material/ripple/dist/mdc.ripple.min.js';
 
 export class Button extends Component {
@@ -42,7 +43,7 @@ export class Button extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-button' +
+		let classes = 'mdc-button rme-Button-wrap' +
 			(this.props.accent ? ' mdc-button--accent' : '') +
 			(this.props.primary ? ' mdc-button--primary' : '') +
 			(this.props.raised ? ' mdc-button--raised' : '');

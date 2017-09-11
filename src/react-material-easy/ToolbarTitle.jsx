@@ -6,7 +6,10 @@
 
 import React from 'react';
 import '@material/toolbar/dist/mdc.toolbar.min.css';
+import './ToolbarTitle.css';
 
 export const ToolbarTitle = (props) => (
-	<span className="mdc-toolbar__title">{props.children}</span>
+	<span className="mdc-toolbar__title rme-ToolbarTitle-wrap">
+		{props.children}
+	</span>
 );

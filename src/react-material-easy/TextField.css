@@ -11,4 +11,5 @@
 
 .rme-TextField-input {
 	letter-spacing: normal;
+	font-family: inherit;
 }

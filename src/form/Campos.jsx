@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Checkbox, RadioGroup, RadioButton, TextField } from '../react-material-easy';
+import { Checkbox, RadioGroup, RadioButton, TextField } from '../react-material-easy';
 
 export default class Campos extends Component {
 	static propTypes = {
@@ -16,7 +16,7 @@ export default class Campos extends Component {
 	render() {
 		return (
 			<div>
-				<TextField name="nome" label="Nome" onChange={this.handleChange} size="22"/>
+				<TextField name="nome" label="Nome" onChange={this.handleChange} size="22" autoFocus/>
 				<Checkbox name="nacional" onChange={this.handleChange}>Nacional</Checkbox>
 				<br/>
 				<TextField name="local" label="Local" onChange={this.handleChange}/>
@@ -25,7 +25,6 @@ export default class Campos extends Component {
 					<RadioButton value="ruim" defaultChecked>Ruim</RadioButton>
 					<RadioButton value="indiferente">Indiferente</RadioButton>
 				</RadioGroup><br/>
-				<Button autoFocus primary>No no no</Button>
 			</div>
 		);
 	}

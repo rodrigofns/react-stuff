@@ -4,11 +4,6 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-body.mdc-dialog-scroll-lock {
-	color: inherit;
-}
-
-.rme-Dialog-body {
-	color: inherit;
+.rme-Button-wrap {
 	font-family: inherit;
 }
