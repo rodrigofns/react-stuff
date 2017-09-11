@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import {
 	Drawer,
 	Layout,
@@ -34,10 +34,10 @@ export default class App extends Component {
 						<ToolbarTitle>Material girl app</ToolbarTitle>
 					</Toolbar>
 					<Drawer>
-						<ListItem><Link to="/">Home</Link></ListItem>
+						<ListItem><NavLink exact activeStyle={{background:'#f0f0f0'}} to="/">Home</NavLink></ListItem>
 						<ListSeparator/>
-						<ListItem><Link to="/films">Films</Link></ListItem>
-						<ListItem><Link to="/form">Form</Link></ListItem>
+						<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/films">Films</NavLink></ListItem>
+						<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/form">Form</NavLink></ListItem>
 					</Drawer>
 					<LayoutBody>
 						<Route exact path="/" component={Home}/>
