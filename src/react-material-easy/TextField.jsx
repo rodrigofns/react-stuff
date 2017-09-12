@@ -19,7 +19,12 @@ export class TextField extends Component {
 		label: PropTypes.string.isRequired,
 		name: PropTypes.string.isRequired,
 		size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		type: PropTypes.oneOf(['email', 'password', 'text', 'url']),
 		onChange: PropTypes.func
+	}
+
+	static defaultProps = {
+		type: 'text'
 	}
 
 	componentDidMount() {
@@ -65,7 +70,7 @@ export class TextField extends Component {
 					id={this.props.id}
 					name={this.props.name}
 					size={this.props.size}
-					type="text"
+					type={this.props.type}
 					onChange={this.handleChange}/>
 				<label
 					className="mdc-textfield__label"

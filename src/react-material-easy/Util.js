@@ -54,4 +54,9 @@ export default class Util {
 
 		return objRet;
 	}
+
+	static mergeClass(constants, objProps) {
+		return constants +
+			(objProps.className ? (' ' + objProps.className) : '');
+	}
 }

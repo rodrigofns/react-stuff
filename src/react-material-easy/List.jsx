@@ -33,7 +33,7 @@ export const List = (props) => {
 					return (
 						<div className="mdc-list-group" key={i}>
 							<ul className="mdc-list rme-List-ul">
-								{block.map(it => it)}
+								{block}
 							</ul>
 						</div>
 					);

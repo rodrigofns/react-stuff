@@ -5,9 +5,17 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const LayoutFooter = (props) => (
-	<footer>
+	<footer
+		className={props.className}
+		style={props.style}>
 		{props.children}
 	</footer>
 );
+
+LayoutFooter.propTypes = {
+	className: PropTypes.string,
+	style: PropTypes.object
+};

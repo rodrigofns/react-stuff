@@ -5,11 +5,20 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import '@material/toolbar/dist/mdc.toolbar.min.css';
 import './ToolbarTitle.css';
+import Util from './Util';
 
 export const ToolbarTitle = (props) => (
-	<span className="mdc-toolbar__title rme-ToolbarTitle-wrap">
+	<span
+		className={Util.mergeClass('mdc-toolbar__title rme-ToolbarTitle-wrap', props)}
+		style={props.style}>
 		{props.children}
 	</span>
 );
+
+ToolbarTitle.propTypes = {
+	className: PropTypes.string,
+	style: PropTypes.object
+};
