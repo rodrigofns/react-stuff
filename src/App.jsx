@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+// import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import {
-	Drawer,
-	Layout,
-	LayoutBody,
-	ListItem,
-	ListSeparator,
+	// Drawer,
+	// Layout,
+	// LayoutBody,
+	LayoutFooter,
+	// ListItem,
+	// ListSeparator,
+	RoutedLayout,
+	RoutedLayoutNav,
+	RoutedLayoutNavSeparator,
 	Toolbar,
 	ToolbarTitle
 } from './react-material-easy';
@@ -28,24 +32,37 @@ export default class App extends Component {
 			// 	</p>
 			// </div>
 
-			<BrowserRouter>
-				<Layout>
-					<Toolbar>
-						<ToolbarTitle>Material girl app</ToolbarTitle>
-					</Toolbar>
-					<Drawer>
-						<ListItem><NavLink exact activeStyle={{background:'#f0f0f0'}} to="/">Home</NavLink></ListItem>
-						<ListSeparator/>
-						<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/films">Films</NavLink></ListItem>
-						<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/form">Form</NavLink></ListItem>
-					</Drawer>
-					<LayoutBody>
-						<Route exact path="/" component={Home}/>
-						<Route path="/films" component={Films}/>
-						<Route path="/form" component={Form}/>
-					</LayoutBody>
-				</Layout>
-			</BrowserRouter>
+			// <BrowserRouter>
+			// 	<Layout>
+			// 		<Toolbar>
+			// 			<ToolbarTitle>Material girl app</ToolbarTitle>
+			// 		</Toolbar>
+			// 		<Drawer>
+			// 			<ListItem><NavLink exact activeStyle={{background:'#f0f0f0'}} to="/">Home</NavLink></ListItem>
+			// 			<ListSeparator/>
+			// 			<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/films">Films</NavLink></ListItem>
+			// 			<ListItem><NavLink activeStyle={{background:'#f0f0f0'}} to="/form">Form</NavLink></ListItem>
+			// 		</Drawer>
+			// 		<LayoutBody>
+			// 			<Route exact path="/" component={Home}/>
+			// 			<Route path="/films" component={Films}/>
+			// 			<Route path="/form" component={Form}/>
+			// 		</LayoutBody>
+			// 	</Layout>
+			// </BrowserRouter>
+
+			<RoutedLayout>
+				<RoutedLayoutNav exact to="/" component={Home}>Home</RoutedLayoutNav>
+				<RoutedLayoutNavSeparator/>
+				<RoutedLayoutNav to="/films" component={Films}>Films</RoutedLayoutNav>
+				<RoutedLayoutNav to="/form" component={Form}>Form</RoutedLayoutNav>
+				<Toolbar>
+					<ToolbarTitle>Material app</ToolbarTitle>
+				</Toolbar>
+				<LayoutFooter>
+					Footer
+				</LayoutFooter>
+			</RoutedLayout>
 		);
 	}
 }
