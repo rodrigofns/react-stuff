@@ -7,6 +7,16 @@
 import { Children } from 'react';
 
 export default class Util {
+	static addValueAndIfExistMakeArray(object, property, value) {
+		if (object[property] === undefined) {
+			object[property] = value;
+		} else if (Array.isArray(object[property])) {
+			object[property].push(value);
+		} else {
+			object[property] = [object[property], value];
+		}
+	}
+
 	static filterChildren(propsChildren, namesAndComponents) {
 		let objRet = { };
 		let children = Children.toArray(propsChildren);
@@ -21,21 +31,19 @@ export default class Util {
 			let child = children[c];
 			let wasAdded = false;
 
-			for (let n = 0; n < names.length; ++n) {
+			for (let n = 0; n < names.length && !wasAdded; ++n) {
 				let name = names[n];
-				let component = namesAndComponents[name];
+				let components = Array.isArray(namesAndComponents[name]) ?
+					namesAndComponents[name] : [namesAndComponents[name]];
 
-				if (child.type === component) {
-					if (objRet[name] === undefined) {
-						objRet[name] = child;
-					} else if (Array.isArray(objRet[name])) {
-						objRet[name].push(child);
-					} else {
-						objRet[name] = [objRet[name], child];
+				for (let m = 0; m < components.length; ++m) {
+					let component = components[m];
+
+					if (child.type === component) {
+						Util.addValueAndIfExistMakeArray(objRet, name, child);
+						wasAdded = true;
+						break;
 					}
-
-					wasAdded = true;
-					break;
 				}
 			}
 
