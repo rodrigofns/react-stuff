@@ -4,7 +4,7 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-import React from 'react';
+import React, { Children } from 'react';
 import '@material/list/dist/mdc.list.min.css';
 import './List.css';
 import { ListItem } from './ListItem';
@@ -12,16 +12,19 @@ import { ListSeparator } from './ListSeparator';
 
 export const List = (props) => {
 	let blocks = [];
-	props.children.forEach(child => {
-		if (child.type === ListSeparator) {
-			blocks.push(child);
-		} else if (child.type === ListItem) {
-			if (!blocks.length || !Array.isArray(blocks[blocks.length - 1])) {
-				blocks.push([]);
+
+	if (Children.count(props.children)) {
+		props.children.forEach(child => {
+			if (child.type === ListSeparator) {
+				blocks.push(child);
+			} else if (child.type === ListItem) {
+				if (!blocks.length || !Array.isArray(blocks[blocks.length - 1])) {
+					blocks.push([]);
+				}
+				blocks[blocks.length - 1].push(child);
 			}
-			blocks[blocks.length - 1].push(child);
-		}
-	});
+		});
+	}
 
 	return (
 		<div>
