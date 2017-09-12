@@ -7,5 +7,5 @@
 .rme-LayoutBody-wrap {
 	flex-grow: 1;
 	overflow-y: auto;
-	padding-left: 16px;
+	padding: 0 16px;
 }

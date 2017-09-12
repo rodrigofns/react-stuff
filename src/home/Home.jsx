@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Dialog, DialogHeader, DialogFooter } from '../react-material-easy';
+import {
+	Button,
+	Dialog,
+	DialogHeader,
+	DialogFooter
+} from '../react-material-easy';
 
 class Outra extends Component {
 	render() {
