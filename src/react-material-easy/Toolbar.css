@@ -1,0 +1,28 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-Toolbar-firstRow {
+	padding-top: 4px;
+}
+
+.rme-Toolbar-hamburger {
+	margin: 6px 14px;
+	padding: 10px;
+	transition-property: transform;
+	transition-duration: .5s;
+}
+
+.rme-Toolbar-hamburger-rotate {
+	transform: rotate(180deg);
+}
+
+.rme-Toolbar-hamburger:hover {
+	background-color: rgba(255,255,255,.1);
+}
+
+.rme-Toolbar-hamburger:active {
+	background-color: rgba(255,255,255,.2);
+}

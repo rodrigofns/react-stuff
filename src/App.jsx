@@ -57,7 +57,7 @@ export default class App extends Component {
 				<RoutedLayoutNav to="/films" component={Films}>Films</RoutedLayoutNav>
 				<RoutedLayoutNav to="/form" component={Form}>Form</RoutedLayoutNav>
 				<Toolbar>
-					<ToolbarTitle>Material app</ToolbarTitle>
+					<ToolbarTitle>Fucking material app</ToolbarTitle>
 				</Toolbar>
 				<LayoutFooter>
 					Footer
