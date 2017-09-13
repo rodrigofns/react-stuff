@@ -14,7 +14,7 @@ import Util from './Util';
 
 export class Layout extends Component {
 	handleHamburgerClick = (ev) => {
-		console.log(ev)
+		this.divElement.classList.toggle('rme-Layout-wrapper-hidden', ev.isOpen);
 	}
 
 	render() {
@@ -25,7 +25,9 @@ export class Layout extends Component {
 		});
 
 		return (
-			<div className="rme-Layout-wrapper">
+			<div
+				className="rme-Layout-wrapper"
+				ref={el => this.divElement = el}>
 				{React.cloneElement(elems.toolbar, {
 					onHamburgerClick: this.handleHamburgerClick
 				})}

@@ -12,7 +12,17 @@ body {
 .rme-Layout-wrapper {
 	display: flex;
 	flex-direction: column;
+	width: 100vw;
 	height: 100vh;
+	position: absolute;
+	left: 0;
+	transition: left .5s, width .5s;
+}
+
+.rme-Layout-wrapper-hidden {
+	left: -240px;
+	width: calc(100vw + 240px);
+	transition: left .5s, width .5s;
 }
 
 .rme-Layout-body {
