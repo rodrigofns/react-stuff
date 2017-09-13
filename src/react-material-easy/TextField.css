@@ -5,8 +5,7 @@
  */
 
 .rme-text-field__wrap {
-	height: auto;
-	margin-top: 24px;
+	display: inline-block;
 }
 
 .rme-text-field__input {

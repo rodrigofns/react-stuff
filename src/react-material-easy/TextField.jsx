@@ -9,16 +9,12 @@ import PropTypes from 'prop-types';
 import '@material/textfield/dist/mdc.textfield.min.css';
 import './TextField.css';
 import { MDCTextfield } from '@material/textfield/dist/mdc.textfield.min.js';
+import Util from './Util';
 
 export class TextField extends Component {
 	static propTypes = {
-		autoFocus: PropTypes.oneOf([true, false, 'autoFocus']),
-		defaultValue: PropTypes.string,
-		disabled: PropTypes.oneOf([true, false, 'disabled']),
-		id: PropTypes.string,
-		label: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired,
-		size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		autoFocus: PropTypes.bool,
+		helpTextPersistent: PropTypes.bool,
 		type: PropTypes.oneOf(['email', 'password', 'text', 'url']),
 		onChange: PropTypes.func
 	}
@@ -58,25 +54,32 @@ export class TextField extends Component {
 	}
 
 	render() {
+		let { autoFocus, className, helpText, helpTextPersistent, label, ...otherProps } = this.props;
+
+		let helpClass = 'mdc-textfield-helptext' +
+			(this.props.helpTextPersistent ? ' mdc-textfield-helptext--persistent' : '');
+
 		return (
-			<div
-				className="mdc-textfield rme-text-field__wrap"
-				data-mdc-auto-init="MDCTextfield"
-				ref={el => this.divElem = el}>
-				<input
-					className="mdc-textfield__input rme-text-field__input"
-					defaultValue={this.props.defaultValue}
-					disabled={this.props.disabled}
-					id={this.props.id}
-					name={this.props.name}
-					size={this.props.size}
-					type={this.props.type}
-					onChange={this.handleChange}/>
+			<div className="rme-text-field__wrap">
 				<label
-					className="mdc-textfield__label"
-					htmlFor={this.props.name}>
-					{this.props.label}
+					className="mdc-textfield"
+					ref={el => this.divElem = el}>
+					<input
+						className={Util.mergeClass('mdc-textfield__input rme-text-field__input', className)}
+						onChange={this.handleChange}
+						{...otherProps}/>
+					{label ? (
+						<span
+							className="mdc-textfield__label">
+							{label}
+						</span>
+					) : null}
 				</label>
+				{helpText ? (
+					<p className={helpClass}>
+						{helpText}
+					</p>
+				) : null}
 			</div>
 		);
 	}
