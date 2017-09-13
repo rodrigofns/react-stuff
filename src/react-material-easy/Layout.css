@@ -20,3 +20,8 @@ body {
 	min-height: 0;
 	display: flex;
 }
+
+.rme-Layout-body .mdc-permanent-drawer .mdc-list .mdc-list-item
+	a:hover:not(.rme-RoutedLayout-current) {
+	background-color: #fafafa;
+}
