@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from '../react-material-easy';
 import Campos from './Campos';
 import Avisador from './Avisador';
 
@@ -20,15 +21,17 @@ export default class Form extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="main-content">
 				<h1>Form</h1>
 				<h2>Campos</h2>
 				<Campos mudouAlgo={this.mudou}/>
 				<h2>Avisador</h2>
-				<Avisador nome={this.state.nome}
-					local={this.state.local}
-					nacional={this.state.nacional}
-					quale={this.state.quale}/>
+				<Card style={{padding:'10px'}}>
+					<Avisador nome={this.state.nome}
+						local={this.state.local}
+						nacional={this.state.nacional}
+						quale={this.state.quale}/>
+				</Card>
 			</div>
 		);
 	}

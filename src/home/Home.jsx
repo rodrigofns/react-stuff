@@ -28,7 +28,7 @@ export default class Home extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="main-content">
 				<h1>Home</h1>
 				<p>Hey.</p>
 				<Button raised accent onClick={this.abre1}>Pipocar</Button>

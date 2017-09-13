@@ -32,6 +32,6 @@ body {
 }
 
 .rme-layout__body .mdc-permanent-drawer .mdc-list .mdc-list-item
-	a:hover:not(.rme-routed-layout__current) {
+a:hover:not(.rme-routed-layout__current) {
 	background-color: #fafafa;
 }

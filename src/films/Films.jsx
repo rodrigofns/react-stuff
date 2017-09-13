@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ListaFilmes from './ListaFilmes';
-import { Button } from '../react-material-easy';
+import {
+	Button,
+	Card
+} from '../react-material-easy';
 
 export default class Films extends Component {
 	constructor(props) {
@@ -31,7 +34,7 @@ export default class Films extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="main-content">
 				<h1>Films</h1>
 				<Button raised
 					disabled={this.state.loading}
@@ -39,7 +42,9 @@ export default class Films extends Component {
 				{this.state.loading ? (
 					<p>Loading...</p>
 				) : (
-					<ListaFilmes filmes={this.state.films}/>
+					<Card style={{marginTop:'20px'}}>
+						<ListaFilmes filmes={this.state.films}/>
+					</Card>
 				)}
 			</div>
 		);

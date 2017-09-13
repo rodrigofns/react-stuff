@@ -1,0 +1,19 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-card__wrap .mdc-card__title,
+.rme-card__wrap .mdc-card__subtitle,
+.rme-card__wrap .mdc-card__supporting-text {
+	color: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	letter-spacing: normal;
+}
+
+.rme-card__wrap .mdc-card__supporting-text {
+	font-size: inherit;
+	line-height: inherit;
+}
