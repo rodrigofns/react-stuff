@@ -16,13 +16,13 @@ body {
 	height: 100vh;
 	position: absolute;
 	left: 0;
-	transition: left .5s, width .5s;
+	transition: left .3s, width .3s;
 }
 
 .rme-layout__wrapper-hidden {
 	left: -240px;
 	width: calc(100vw + 240px);
-	transition: left .5s, width .5s;
+	transition: left .3s, width .3s;
 }
 
 .rme-layout__body {
