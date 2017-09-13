@@ -4,7 +4,7 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import '@material/toolbar/dist/mdc.toolbar.min.css';
 import './Layout.css';
 import { Drawer } from './Drawer';
@@ -13,22 +13,30 @@ import { LayoutFooter } from './LayoutFooter';
 import { Toolbar } from './Toolbar';
 import Util from './Util';
 
-export const Layout = (props) => {
-	let elems = Util.filterChildren(props.children, {
-		toolbar: Toolbar,
-		drawer: Drawer,
-		body: LayoutBody,
-		footer: LayoutFooter
-	});
+export class Layout extends Component {
+	handleHamburgerClick = (ev) => {
+		console.log(ev)
+	}
 
-	return (
-		<div className="rme-Layout-wrapper">
-			{elems.toolbar}
-			<div className="mdc-toolbar-fixed-adjust rme-Layout-body">
-				{elems.drawer}
-				{elems.body}
+	render() {
+		let elems = Util.filterChildren(this.props.children, {
+			toolbar: Toolbar,
+			drawer: Drawer,
+			body: LayoutBody,
+			footer: LayoutFooter
+		});
+
+		return (
+			<div className="rme-Layout-wrapper">
+				{React.cloneElement(elems.toolbar, {
+					onHamburgerClick: this.handleHamburgerClick
+				})}
+				<div className="mdc-toolbar-fixed-adjust rme-Layout-body">
+					{elems.drawer}
+					{elems.body}
+				</div>
+				{elems.footer}
 			</div>
-			{elems.footer}
-		</div>
-	);
+		);
+	}
 };

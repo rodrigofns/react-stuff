@@ -28,7 +28,7 @@ export class ListItem extends Component {
 	render() {
 		return (
 			<li
-				className={Util.mergeClass('mdc-list-item rme-ListItem-wrap', this.props)}
+				className={Util.mergeClass('mdc-list-item rme-ListItem-wrap', this.props.className)}
 				ref={el => this.liElement = el}
 				style={this.props.style}>
 				{this.props.children}

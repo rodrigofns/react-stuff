@@ -11,7 +11,7 @@ import Util from './Util';
 
 export const ListSeparator = (props) => (
 	<hr
-		className={Util.mergeClass('mdc-list-divider', props)}
+		className={Util.mergeClass('mdc-list-divider', props.className)}
 		style={props.style}/>
 );
 

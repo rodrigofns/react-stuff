@@ -12,7 +12,7 @@ import Util from './Util';
 
 export const DialogHeader = (props) => (
 	<header
-		className={Util.mergeClass('mdc-dialog__header', props)}
+		className={Util.mergeClass('mdc-dialog__header', props.className)}
 		style={props.style}>
 		<h2 className="mdc-dialog__header__title rme-DialogHeader-title">
 			{props.children}
