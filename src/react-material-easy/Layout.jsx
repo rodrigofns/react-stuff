@@ -14,7 +14,7 @@ import Util from './Util';
 
 export class Layout extends Component {
 	handleHamburgerClick = (ev) => {
-		this.divElement.classList.toggle('rme-Layout-wrapper-hidden', ev.isOpen);
+		this.divElem.classList.toggle('rme-layout__wrapper-hidden', ev.isOpen);
 	}
 
 	render() {
@@ -26,12 +26,12 @@ export class Layout extends Component {
 
 		return (
 			<div
-				className="rme-Layout-wrapper"
-				ref={el => this.divElement = el}>
+				className="rme-layout__wrapper"
+				ref={el => this.divElem = el}>
 				{React.cloneElement(elems.toolbar, {
 					onHamburgerClick: this.handleHamburgerClick
 				})}
-				<div className="mdc-toolbar-fixed-adjust rme-Layout-body">
+				<div className="mdc-toolbar-fixed-adjust rme-layout__body">
 					{elems.drawer}
 					{elems.body}
 				</div>

@@ -4,12 +4,12 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-TextField-wrap {
+.rme-text-field__wrap {
 	height: auto;
 	margin-top: 24px;
 }
 
-.rme-TextField-input {
+.rme-text-field__input {
 	letter-spacing: normal;
 	font-family: inherit;
 }

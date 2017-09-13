@@ -4,11 +4,11 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-Checkbox-wrapLabel {
+.rme-checkbox__wrap-label {
 	display: inline-block;
 }
 
-.rme-Checkbox-children {
+.rme-checkbox__children {
 	display: inline-block;
 	padding-bottom: 10px;
 	cursor: pointer;

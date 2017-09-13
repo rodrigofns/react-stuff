@@ -23,9 +23,9 @@ export class Button extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcRipple = new MDCRipple(this.buttonElement);
+		this.mdcRipple = new MDCRipple(this.buttonElem);
 		if (this.props.autoFocus) {
-			this.buttonElement.focus();
+			this.buttonElem.focus();
 		}
 	}
 
@@ -43,7 +43,7 @@ export class Button extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-button rme-Button-wrap' +
+		let classes = 'mdc-button rme-button__wrap' +
 			(this.props.accent ? ' mdc-button--accent' : '') +
 			(this.props.primary ? ' mdc-button--primary' : '') +
 			(this.props.raised ? ' mdc-button--raised' : '');
@@ -58,7 +58,7 @@ export class Button extends Component {
 				data-mdc-auto-init="MDCRipple"
 				disabled={this.props.disabled}
 				id={this.props.id}
-				ref={el => this.buttonElement = el}
+				ref={el => this.buttonElem = el}
 				type={this.props.type}
 				onClick={this.handleClick}>
 				{this.props.children}

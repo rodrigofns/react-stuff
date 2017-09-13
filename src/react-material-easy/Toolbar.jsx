@@ -22,7 +22,7 @@ export class Toolbar extends Component {
 	}
 
 	handleHamburgerClick = () => {
-		this.hambElement.classList.toggle('rme-Toolbar-hamburger-rotate',
+		this.hambElem.classList.toggle('rme-toolbar__hamburger-rotate',
 			this.isHambRotated = !this.isHambRotated);
 		if (this.props.onHamburgerClick) {
 			this.props.onHamburgerClick({ isOpen: this.isHambRotated });
@@ -49,12 +49,12 @@ export class Toolbar extends Component {
 			// 	</div>
 			// </header>
 			<header className="mdc-toolbar mdc-toolbar--fixed">
-				<div className="mdc-toolbar__row rme-Toolbar-firstRow">
+				<div className="mdc-toolbar__row rme-toolbar__first-row">
 					<section className="mdc-toolbar__section mdc-toolbar__section--align-start">
 						<span
-							className="material-icons mdc-toolbar__icon--menu rme-Toolbar-hamburger"
+							className="material-icons mdc-toolbar__icon--menu rme-toolbar__hamburger"
 							onClick={this.handleHamburgerClick}
-							ref={el => this.hambElement = el}>
+							ref={el => this.hambElem = el}>
 							<svg
 								height="25px"
 								version="1.1"

@@ -21,7 +21,7 @@ export class RadioButton extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCRadio(this.divElement);
+		this.mdcComponent = new MDCRadio(this.divElem);
 		if (this.props.defaultChecked) {
 			this.mdcComponent.checked = true;
 			this.handleClick();
@@ -45,14 +45,14 @@ export class RadioButton extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-radio rme-RadioButton-mdcRadio' +
+		let classes = 'mdc-radio rme-radio-button__mdc-radio' +
 			(this.props.disabled ? ' mdc-radio--disabled' : '');
 
 		return (
-			<label className="rme-RadioButton-wrapLabel">
+			<label className="rme-radio-button__wrap-label">
 				<div
 					className={classes}
-					ref={el => this.divElement = el}>
+					ref={el => this.divElem = el}>
 					<input
 						className="mdc-radio__native-control"
 						defaultChecked={this.props.defaultChecked}
@@ -68,7 +68,7 @@ export class RadioButton extends Component {
 						<div className="mdc-radio__inner-circle"></div>
 					</div>
 				</div>
-				<div className="rme-RadioButton-children">
+				<div className="rme-radio-button__children">
 					{this.props.children}
 				</div>
 			</label>

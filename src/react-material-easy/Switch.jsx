@@ -48,7 +48,7 @@ export class Switch extends Component {
 			(this.props.disabled ? ' mdc-switch--disabled' : '');
 
 		return (
-			<label className="rme-Switch-wrapLabel">
+			<label className="rme-switch__wrap-label">
 				<div className={classes}>
 					<input
 						className="mdc-switch__native-control"
@@ -63,7 +63,7 @@ export class Switch extends Component {
 						<div className="mdc-switch__knob"></div>
 					</div>
 				</div>
-				<div className="rme-Switch-children">
+				<div className="rme-switch__children">
 					{this.props.children}
 				</div>
 			</label>

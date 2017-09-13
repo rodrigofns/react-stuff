@@ -20,7 +20,7 @@ export class Checkbox extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCCheckbox(this.divElement);
+		this.mdcComponent = new MDCCheckbox(this.divElem);
 		if (this.props.defaultChecked) {
 			this.handleChange();
 		}
@@ -47,10 +47,10 @@ export class Checkbox extends Component {
 			(this.props.disabled ? ' mdc-checkbox--disabled' : '');
 
 		return (
-			<label className="rme-Checkbox-wrapLabel">
+			<label className="rme-checkbox__wrap-label">
 				<div
 					className={classes}
-					ref={el => this.divElement = el}>
+					ref={el => this.divElem = el}>
 					<input
 						className="mdc-checkbox__native-control"
 						defaultChecked={this.props.defaultChecked}
@@ -72,7 +72,7 @@ export class Checkbox extends Component {
 							<div className="mdc-checkbox__mixedmark"></div>
 						</div>
 				</div>
-				<div className="rme-Checkbox-children">
+				<div className="rme-checkbox__children">
 					{this.props.children}
 				</div>
 			</label>

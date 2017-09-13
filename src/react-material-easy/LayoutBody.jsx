@@ -11,7 +11,7 @@ import Util from './Util';
 
 export const LayoutBody = (props) => (
 	<main
-		className={Util.mergeClass('rme-LayoutBody-wrap', props.className)}
+		className={Util.mergeClass('rme-layout-body__wrap', props.className)}
 		style={props.style}>
 		{props.children}
 	</main>

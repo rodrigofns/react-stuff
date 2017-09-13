@@ -28,9 +28,9 @@ export class TextField extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCTextfield(this.divElement);
+		this.mdcComponent = new MDCTextfield(this.divElem);
 		if (this.props.autoFocus) {
-			this.divElement.getElementsByTagName('input')[0].focus();
+			this.divElem.getElementsByTagName('input')[0].focus();
 		}
 		if (this.props.defaultValue) {
 			this.handleChange({
@@ -60,11 +60,11 @@ export class TextField extends Component {
 	render() {
 		return (
 			<div
-				className="mdc-textfield rme-TextField-wrap"
+				className="mdc-textfield rme-text-field__wrap"
 				data-mdc-auto-init="MDCTextfield"
-				ref={el => this.divElement = el}>
+				ref={el => this.divElem = el}>
 				<input
-					className="mdc-textfield__input rme-TextField-input"
+					className="mdc-textfield__input rme-text-field__input"
 					defaultValue={this.props.defaultValue}
 					disabled={this.props.disabled}
 					id={this.props.id}

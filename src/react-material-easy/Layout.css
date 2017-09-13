@@ -9,7 +9,7 @@ body {
 	font-family: Roboto,Arial,sans-serif;
 }
 
-.rme-Layout-wrapper {
+.rme-layout__wrapper {
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
@@ -19,19 +19,19 @@ body {
 	transition: left .5s, width .5s;
 }
 
-.rme-Layout-wrapper-hidden {
+.rme-layout__wrapper-hidden {
 	left: -240px;
 	width: calc(100vw + 240px);
 	transition: left .5s, width .5s;
 }
 
-.rme-Layout-body {
+.rme-layout__body {
 	flex-grow: 1;
 	min-height: 0;
 	display: flex;
 }
 
-.rme-Layout-body .mdc-permanent-drawer .mdc-list .mdc-list-item
-	a:hover:not(.rme-RoutedLayout-current) {
+.rme-layout__body .mdc-permanent-drawer .mdc-list .mdc-list-item
+	a:hover:not(.rme-routed-layout__current) {
 	background-color: #fafafa;
 }

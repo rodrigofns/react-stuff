@@ -12,7 +12,7 @@ import Util from './Util';
 
 export const ToolbarTitle = (props) => (
 	<span
-		className={Util.mergeClass('mdc-toolbar__title rme-ToolbarTitle-wrap', props.className)}
+		className={Util.mergeClass('mdc-toolbar__title rme-toolbar-title__wrap', props.className)}
 		style={props.style}>
 		{props.children}
 	</span>

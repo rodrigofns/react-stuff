@@ -4,15 +4,15 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-RadioButton-wrapLabel {
+.rme-radio-button__wrap-label {
 	display: inline-block;
 }
 
-.rme-RadioButton-mdcRadio {
+.rme-radio-button__mdc-radio {
 	top: 13px;
 }
 
-.rme-RadioButton-children {
+.rme-radio-button__children {
 	display: inline-block;
 	cursor: pointer;
 	user-select: none;

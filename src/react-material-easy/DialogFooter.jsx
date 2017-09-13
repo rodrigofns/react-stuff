@@ -12,7 +12,7 @@ import Util from './Util';
 
 export const DialogFooter = (props) => (
 	<footer
-		className={Util.mergeClass('mdc-dialog__footer rme-DialogFooter-wrap', props.className)}
+		className={Util.mergeClass('mdc-dialog__footer rme-dialog-footer__wrap', props.className)}
 		style={props.style}>
 		{props.children}
 	</footer>

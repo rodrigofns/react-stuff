@@ -4,25 +4,25 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-Toolbar-firstRow {
+.rme-toolbar__first-row {
 	padding-top: 4px;
 }
 
-.rme-Toolbar-hamburger {
+.rme-toolbar__hamburger {
 	margin: 6px 14px;
 	padding: 10px;
 	transition-property: transform;
 	transition-duration: .5s;
 }
 
-.rme-Toolbar-hamburger-rotate {
+.rme-toolbar__hamburger-rotate {
 	transform: rotate(180deg);
 }
 
-.rme-Toolbar-hamburger:hover {
+.rme-toolbar__hamburger:hover {
 	background-color: rgba(255,255,255,.1);
 }
 
-.rme-Toolbar-hamburger:active {
+.rme-toolbar__hamburger:active {
 	background-color: rgba(255,255,255,.2);
 }

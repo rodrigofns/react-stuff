@@ -31,7 +31,7 @@ export const RoutedLayout = (props) => {
 							return (
 								<ListItem key={i}>
 									<NavLink
-										activeClassName="rme-RoutedLayout-current"
+										activeClassName="rme-routed-layout__current"
 										activeStyle={r.props.activeStyle}
 										exact={r.props.exact}
 										strict={r.props.strict}

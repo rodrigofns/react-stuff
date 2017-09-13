@@ -10,7 +10,7 @@ import './Drawer.css';
 import { List } from './List';
 
 export const Drawer = (props) => (
-	<nav className="mdc-permanent-drawer rme-Drawer-wrap">
+	<nav className="mdc-permanent-drawer rme-drawer__wrap">
 		<List>
 			{props.children}
 		</List>

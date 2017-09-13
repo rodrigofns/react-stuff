@@ -39,7 +39,7 @@ export class RadioGroup extends Component {
 		});
 
 		return (
-			<div className="rme-RadioGroup-wrap">
+			<div className="rme-radio-group__wrap">
 				{elems}
 			</div>
 		);

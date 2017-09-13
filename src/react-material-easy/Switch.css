@@ -4,11 +4,11 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-Switch-wrapLabel {
+.rme-switch__wrap-label {
 	display: inline-block;
 }
 
-.rme-Switch-children {
+.rme-switch__children {
 	display: inline-block;
 	margin-left: 8px;
 	cursor: pointer;

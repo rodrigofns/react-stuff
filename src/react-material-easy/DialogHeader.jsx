@@ -14,7 +14,7 @@ export const DialogHeader = (props) => (
 	<header
 		className={Util.mergeClass('mdc-dialog__header', props.className)}
 		style={props.style}>
-		<h2 className="mdc-dialog__header__title rme-DialogHeader-title">
+		<h2 className="mdc-dialog__header__title rme-dialog-header__title">
 			{props.children}
 		</h2>
 	</header>

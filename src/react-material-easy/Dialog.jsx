@@ -37,7 +37,7 @@ export class Dialog extends Component {
 	}
 
 	componentDidMount() {
-		this.mdcComponent = new MDCDialog(this.asideElement);
+		this.mdcComponent = new MDCDialog(this.asideElem);
 		let dismiss = () => {
 			if (Dialog._callbacks[this.props.id]) {
 				Dialog._callbacks[this.props.id]();
@@ -80,12 +80,12 @@ export class Dialog extends Component {
 			<aside
 				className="mdc-dialog"
 				id={this.props.id}
-				ref={el => this.asideElement = el}>
+				ref={el => this.asideElem = el}>
 				<div
 					className="mdc-dialog__surface"
 					style={surfaceStyle}>
 					{elems.header}
-					<section className="mdc-dialog__body rme-Dialog-body">
+					<section className="mdc-dialog__body rme-dialog__body">
 						{elems.leftovers}
 					</section>
 					{elems.footer}

@@ -18,7 +18,7 @@ export class ListItem extends Component {
 	};
 
 	componentDidMount() {
-		this.mdcRipple = new MDCRipple(this.liElement);
+		this.mdcRipple = new MDCRipple(this.liElem);
 	}
 
 	componentWillUnmount() {
@@ -28,8 +28,8 @@ export class ListItem extends Component {
 	render() {
 		return (
 			<li
-				className={Util.mergeClass('mdc-list-item rme-ListItem-wrap', this.props.className)}
-				ref={el => this.liElement = el}
+				className={Util.mergeClass('mdc-list-item rme-list-item__wrap', this.props.className)}
+				ref={el => this.liElem = el}
 				style={this.props.style}>
 				{this.props.children}
 			</li>

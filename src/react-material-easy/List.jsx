@@ -32,7 +32,7 @@ export const List = (props) => {
 				if (Array.isArray(block)) {
 					return (
 						<div className="mdc-list-group" key={i}>
-							<ul className="mdc-list rme-List-ul">
+							<ul className="mdc-list rme-list__ul">
 								{block}
 							</ul>
 						</div>
