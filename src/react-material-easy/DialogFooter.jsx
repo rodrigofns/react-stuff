@@ -5,20 +5,17 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/dialog/dist/mdc.dialog.min.css';
 import './DialogFooter.css';
 import Util from './Util';
 
-export const DialogFooter = (props) => (
-	<footer
-		className={Util.mergeClass('mdc-dialog__footer rme-dialog-footer__wrap', props.className)}
-		style={props.style}>
-		{props.children}
-	</footer>
-);
+export const DialogFooter = (props) => {
+	let { className, ...otherProps } = props;
 
-DialogFooter.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<footer
+			className={Util.mergeClass('mdc-dialog__footer rme-dialog-footer__wrap', className)}
+			{...otherProps}>
+		</footer>
+	);
 };

@@ -5,18 +5,12 @@
  */
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import '@material/list/dist/mdc.list.min.css';
 import './ListItem.css';
 import { MDCRipple } from '@material/ripple/dist/mdc.ripple.min.js';
 import Util from './Util';
 
 export class ListItem extends Component {
-	static propTypes = {
-		className: PropTypes.string,
-		style: PropTypes.object
-	};
-
 	componentDidMount() {
 		this.mdcRipple = new MDCRipple(this.liElem);
 	}
@@ -26,12 +20,13 @@ export class ListItem extends Component {
 	}
 
 	render() {
+		let { className, ...otherProps } = this.props;
+
 		return (
 			<li
-				className={Util.mergeClass('mdc-list-item rme-list-item__wrap', this.props.className)}
+				className={Util.mergeClass('mdc-list-item rme-list-item__wrap', className)}
 				ref={el => this.liElem = el}
-				style={this.props.style}>
-				{this.props.children}
+				{...otherProps}>
 			</li>
 		);
 	}

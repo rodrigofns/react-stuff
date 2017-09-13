@@ -5,20 +5,16 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/linear-progress/dist/mdc.linear-progress.min.css';
+import Util from './Util';
 
 export const LinearProgress = (props) => {
-	let style = { };
-	if (props.width) {
-		style.width = props.width;
-	}
+	let { children, className, ...otherProps } = props;
 
 	return (
 		<div
-			className="mdc-linear-progress mdc-linear-progress--indeterminate"
-			id={props.id}
-			style={style}>
+			className={Util.mergeClass('mdc-linear-progress mdc-linear-progress--indeterminate', className)}
+			{...otherProps}>
 			<div className="mdc-linear-progress__buffering-dots"></div>
 			<div className="mdc-linear-progress__buffer"></div>
 			<div className="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
@@ -29,9 +25,4 @@ export const LinearProgress = (props) => {
 			</div>
 		</div>
 	);
-};
-
-LinearProgress.propTypes = {
-	id: PropTypes.string,
-	width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

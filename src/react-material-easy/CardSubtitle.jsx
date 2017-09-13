@@ -5,19 +5,16 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/card/dist/mdc.card.min.css';
 import Util from './Util';
 
-export const CardSubtitle = (props) => (
-	<h2
-		className={Util.mergeClass('mdc-card__subtitle', props.className)}
-		style={props.style}>
-		{props.children}
-	</h2>
-);
+export const CardSubtitle = (props) => {
+	let { className, ...otherProps } = props;
 
-CardSubtitle.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<h2
+			className={Util.mergeClass('mdc-card__subtitle', className)}
+			{...otherProps}>
+		</h2>
+	);
 };

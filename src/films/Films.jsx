@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ListaFilmes from './ListaFilmes';
 import {
 	Button,
-	Card
+	Card,
+	LinearProgress
 } from '../react-material-easy';
 
 export default class Films extends Component {
@@ -28,7 +29,7 @@ export default class Films extends Component {
 						films: data.films
 					}))
 					.catch(e => console.log('Error', e));
-			}, 500);
+			}, 800);
 		});
 	}
 
@@ -39,13 +40,16 @@ export default class Films extends Component {
 				<Button raised
 					disabled={this.state.loading}
 					onClick={this.recarrega}>Reload</Button>
-				{this.state.loading ? (
-					<p>Loading...</p>
-				) : (
-					<Card style={{marginTop:'20px'}}>
+				<Card style={{marginTop:'20px'}}>
+					{this.state.loading ? (
+						<div>
+							<LinearProgress/>
+							<div style={{padding:'16px'}}>Loading...</div>
+						</div>
+					) : (
 						<ListaFilmes filmes={this.state.films}/>
-					</Card>
-				)}
+					)}
+				</Card>
 			</div>
 		);
 	}

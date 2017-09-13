@@ -5,19 +5,16 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/card/dist/mdc.card.min.css';
 import Util from './Util';
 
-export const CardBody = (props) => (
-	<section
-		className={Util.mergeClass('mdc-card__supporting-text', props.className)}
-		style={props.style}>
-		{props.children}
-	</section>
-);
+export const CardBody = (props) => {
+	let { className, ...otherProps } = props;
 
-CardBody.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<section
+			className={Util.mergeClass('mdc-card__supporting-text', className)}
+			{...otherProps}>
+		</section>
+	);
 };

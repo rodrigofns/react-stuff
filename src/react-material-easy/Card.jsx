@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/card/dist/mdc.card.min.css';
 import './Card.css';
 import { CardBody } from './CardBody';
@@ -14,7 +13,9 @@ import { CardTitle } from './CardTitle';
 import Util from './Util';
 
 export const Card = (props) => {
-	let elems = Util.filterChildren(props.children, {
+	let { children, className, ...otherProps } = props;
+
+	let elems = Util.filterChildren(children, {
 		title: CardTitle,
 		subtitle: CardSubtitle,
 		body: CardBody
@@ -23,17 +24,17 @@ export const Card = (props) => {
 	if (!elems.title && !elems.subtitle && !elems.body) {
 		return (
 			<div
-				className={Util.mergeClass('mdc-card rme-card__wrap', props.className)}
-				style={props.style}>
-				{props.children}
+				className={Util.mergeClass('mdc-card rme-card__wrap', className)}
+				{...otherProps}>
+				{children}
 			</div>
 		);
 	}
 
 	return (
 		<div
-			className={Util.mergeClass('mdc-card rme-card__wrap', props.className)}
-			style={props.style}>
+			className={Util.mergeClass('mdc-card rme-card__wrap', className)}
+			{...otherProps}>
 			<section className="mdc-card__primary">
 				{elems.title}
 				{elems.subtitle}
@@ -41,9 +42,4 @@ export const Card = (props) => {
 			{elems.body}
 		</div>
 	);
-};
-
-Card.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
 };

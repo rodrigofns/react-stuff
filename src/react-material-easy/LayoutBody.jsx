@@ -5,19 +5,16 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import './LayoutBody.css';
 import Util from './Util';
 
-export const LayoutBody = (props) => (
-	<main
-		className={Util.mergeClass('rme-layout-body__wrap', props.className)}
-		style={props.style}>
-		{props.children}
-	</main>
-);
+export const LayoutBody = (props) => {
+	let { className, ...otherProps } = props;
 
-LayoutBody.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<main
+			className={Util.mergeClass('rme-layout-body__wrap', className)}
+			{...otherProps}>
+		</main>
+	);
 };

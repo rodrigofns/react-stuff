@@ -5,22 +5,20 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/dialog/dist/mdc.dialog.min.css';
 import './DialogHeader.css';
 import Util from './Util';
 
-export const DialogHeader = (props) => (
-	<header
-		className={Util.mergeClass('mdc-dialog__header', props.className)}
-		style={props.style}>
-		<h2 className="mdc-dialog__header__title rme-dialog-header__title">
-			{props.children}
-		</h2>
-	</header>
-);
+export const DialogHeader = (props) => {
+	let { children, className, ...otherProps } = props;
 
-DialogHeader.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<header
+			className={Util.mergeClass('mdc-dialog__header', className)}
+			{...otherProps}>
+			<h2 className="mdc-dialog__header__title rme-dialog-header__title">
+				{children}
+			</h2>
+		</header>
+	);
 };

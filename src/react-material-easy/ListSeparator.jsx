@@ -5,17 +5,15 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import '@material/list/dist/mdc.list.min.css';
 import Util from './Util';
 
-export const ListSeparator = (props) => (
-	<hr
-		className={Util.mergeClass('mdc-list-divider', props.className)}
-		style={props.style}/>
-);
+export const ListSeparator = (props) => {
+	let { className, ...otherProps } = props;
 
-ListSeparator.propTypes = {
-	className: PropTypes.string,
-	style: PropTypes.object
+	return (
+		<hr
+			className={Util.mergeClass('mdc-list-divider', className)}
+			{...otherProps}/>
+	);
 };
