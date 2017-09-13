@@ -9,7 +9,6 @@ import '@material/toolbar/dist/mdc.toolbar.min.css';
 import './Layout.css';
 import { Drawer } from './Drawer';
 import { LayoutBody } from './LayoutBody';
-import { LayoutFooter } from './LayoutFooter';
 import { Toolbar } from './Toolbar';
 import Util from './Util';
 
@@ -22,8 +21,7 @@ export class Layout extends Component {
 		let elems = Util.filterChildren(this.props.children, {
 			toolbar: Toolbar,
 			drawer: Drawer,
-			body: LayoutBody,
-			footer: LayoutFooter
+			body: LayoutBody
 		});
 
 		return (
@@ -35,7 +33,6 @@ export class Layout extends Component {
 					{elems.drawer}
 					{elems.body}
 				</div>
-				{elems.footer}
 			</div>
 		);
 	}
