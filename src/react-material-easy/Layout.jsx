@@ -24,14 +24,21 @@ export class Layout extends Component {
 			body: LayoutBody
 		});
 
+		if (elems.toolbar) {
+			elems.toolbar = React.cloneElement(elems.toolbar, {
+				onHamburgerClick: this.handleHamburgerClick
+			});
+		}
+
+		let classes = (elems.toolbar ? 'mdc-toolbar-fixed-adjust ' : '') +
+			'rme-layout__body';
+
 		return (
 			<div
 				className="rme-layout__wrapper"
 				ref={el => this.divElem = el}>
-				{React.cloneElement(elems.toolbar, {
-					onHamburgerClick: this.handleHamburgerClick
-				})}
-				<div className="mdc-toolbar-fixed-adjust rme-layout__body">
+				{elems.toolbar}
+				<div className={classes}>
 					{elems.drawer}
 					{elems.body}
 				</div>
