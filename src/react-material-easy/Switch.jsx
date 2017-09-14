@@ -7,20 +7,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/switch/dist/mdc.switch.min.css';
-import './Switch.css';
+import { FormField } from './FormField';
 
 export class Switch extends Component {
 	static propTypes = {
-		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
-		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		defaultChecked: PropTypes.bool,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
-		name: PropTypes.string,
 		onChange: PropTypes.func
+	}
+
+	static _nextId = 0;
+
+	static _getNextId() {
+		return 'rme-switch__autogen_' + (Switch._nextId++);
 	}
 
 	constructor(props) {
 		super(props);
 		this.state = { checked: false };
+	}
+
+	componentWillMount() {
+		this.idThatWeMustHave = (this.props.id === undefined) ?
+			Switch._getNextId() : this.props.id;
 	}
 
 	componentDidMount() {
@@ -44,29 +54,31 @@ export class Switch extends Component {
 	}
 
 	render() {
+		let { children, className, id, type, value,
+			onChange, ...otherProps } = this.props;
+
 		let classes = 'mdc-switch' +
 			(this.props.disabled ? ' mdc-switch--disabled' : '');
 
 		return (
-			<label className="rme-switch__wrap-label">
+			<FormField>
 				<div className={classes}>
 					<input
 						className="mdc-switch__native-control"
-						id={this.props.id}
-						defaultChecked={this.props.defaultChecked}
-						disabled={this.props.disabled}
-						name={this.props.name}
+						id={this.idThatWeMustHave}
 						type="checkbox"
 						onChange={this.handleChange}
-						/>
+						{...otherProps}/>
 					<div className="mdc-switch__background">
 						<div className="mdc-switch__knob"></div>
 					</div>
 				</div>
-				<div className="rme-switch__children">
-					{this.props.children}
-				</div>
-			</label>
+				<label
+					htmlFor={this.idThatWeMustHave}
+					className="mdc-switch-label">
+					{children}
+				</label>
+			</FormField>
 		);
 	}
 }

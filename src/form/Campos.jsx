@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox, RadioGroup, RadioButton, TextField } from '../react-material-easy';
+import {
+	Checkbox,
+	RadioGroup,
+	RadioButton,
+	TextField
+} from '../react-material-easy';
 
 export default class Campos extends Component {
 	static propTypes = {

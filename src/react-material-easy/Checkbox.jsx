@@ -54,7 +54,7 @@ export class Checkbox extends Component {
 
 	render() {
 		let { checked, children, className, id,
-			type, value, ...otherProps } = this.props;
+			type, value, onChange, ...otherProps } = this.props;
 
 		let classes = 'mdc-checkbox' +
 			(otherProps.disabled ? ' mdc-checkbox--disabled' : '');

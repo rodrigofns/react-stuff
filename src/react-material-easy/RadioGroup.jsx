@@ -28,7 +28,7 @@ export class RadioGroup extends Component {
 	}
 
 	render() {
-		let { children, name, ...otherProps } = this.props;
+		let { children, name, onChange, ...otherProps } = this.props;
 
 		return (
 			<span {...otherProps}>
