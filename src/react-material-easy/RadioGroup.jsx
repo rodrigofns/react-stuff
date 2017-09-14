@@ -6,7 +6,6 @@
 
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
-import './RadioGroup.css';
 import { RadioButton } from './RadioButton';
 
 export class RadioGroup extends Component {
@@ -16,11 +15,12 @@ export class RadioGroup extends Component {
 	}
 
 	handleClick = (ev) => {
-		if (this.props.onChange) {
+		if (this.props.onChange && ev.target.value !== this.curVal) {
+			this.curVal = ev.target.value;
 			this.props.onChange({
 				target: {
 					name: this.props.name,
-					value: ev.target.value
+					value: this.curVal
 				},
 				type: 'change'
 			});
@@ -28,20 +28,20 @@ export class RadioGroup extends Component {
 	}
 
 	render() {
-		let elems = Children.map(this.props.children, child => {
-			if (child.type === RadioButton) {
-				return React.cloneElement(child, {
-					_name: this.props.name,
-					_onClick: this.handleClick
-				});
-			}
-			return child;
-		});
+		let { children, name, ...otherProps } = this.props;
 
 		return (
-			<div className="rme-radio-group__wrap">
-				{elems}
-			</div>
+			<span {...otherProps}>
+				{Children.map(children, child => {
+					if (child.type === RadioButton) {
+						return React.cloneElement(child, {
+							name: name,
+							onClick: this.handleClick
+						});
+					}
+					return child;
+				})}
+			</span>
 		);
 	}
 }

@@ -20,10 +20,13 @@ export default class Campos extends Component {
 					<TextField name="nome" label="Nome"
 						helpText="Motherfucker"
 						onChange={this.handleChange} size="22" autoFocus/>
-					<Checkbox defaultChecked name="nacional" onChange={this.handleChange}>Nacional</Checkbox>
+					<Checkbox defaultChecked name="nacional"
+						onChange={this.handleChange}>Nacional</Checkbox>
 				</div>
 				<div>
-					<TextField name="local" label="Local" onChange={this.handleChange}/>
+					<TextField name="local" label="Local"
+						helpText="Where is it from?"
+						onChange={this.handleChange}/>
 					<RadioGroup name="quale" onChange={this.handleChange}>
 						<RadioButton value="bom">Bom</RadioButton>
 						<RadioButton value="ruim" defaultChecked>Ruim</RadioButton>

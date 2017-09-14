@@ -13,6 +13,7 @@ import { FormField } from './FormField';
 export class Checkbox extends Component {
 	static propTypes = {
 		defaultChecked: PropTypes.bool,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
 		onChange: PropTypes.func
 	}
@@ -52,7 +53,8 @@ export class Checkbox extends Component {
 	}
 
 	render() {
-		let { checked, children, className, type, value, ...otherProps } = this.props;
+		let { checked, children, className, id,
+			type, value, ...otherProps } = this.props;
 
 		let classes = 'mdc-checkbox' +
 			(otherProps.disabled ? ' mdc-checkbox--disabled' : '');
@@ -63,9 +65,9 @@ export class Checkbox extends Component {
 					className={classes}
 					ref={el => this.divElem = el}>
 					<input
+						className="mdc-checkbox__native-control"
 						id={this.idThatWeMustHave}
 						type="checkbox"
-						className="mdc-checkbox__native-control"
 						onChange={this.handleChange}
 						{...otherProps}/>
 					<div className="mdc-checkbox__background">

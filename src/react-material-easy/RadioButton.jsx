@@ -7,17 +7,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/radio/dist/mdc.radio.min.css';
-import './RadioButton.css';
 import { MDCRadio } from '@material/radio/dist/mdc.radio.min.js';
+import { FormField } from './FormField';
 
 export class RadioButton extends Component {
 	static propTypes = {
-		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
-		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		defaultChecked: PropTypes.bool,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
-		value: PropTypes.string.isRequired,
-		_name: PropTypes.string,
-		_onClick: PropTypes.func
+		onClick: PropTypes.func
+	}
+
+	static _nextId = 0;
+
+	static _getNextId() {
+		return 'rme-radio-button__autogen_' + (RadioButton._nextId++);
+	}
+
+	componentWillMount() {
+		this.idThatWeMustHave = (this.props.id === undefined) ?
+			RadioButton._getNextId() : this.props.id;
 	}
 
 	componentDidMount() {
@@ -33,10 +42,10 @@ export class RadioButton extends Component {
 	}
 
 	handleClick = (ev) => {
-		if (this.props._onClick) {
-			this.props._onClick({
+		if (this.props.onClick) {
+			this.props.onClick({
 				target: {
-					name: this.props._name,
+					name: this.props.name,
 					value: this.props.value
 				},
 				type: 'click'
@@ -45,33 +54,32 @@ export class RadioButton extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-radio rme-radio-button__mdc-radio' +
+		let { checked, children, className,
+			id, type, onClick, ...otherProps } = this.props;
+
+		let classes = 'mdc-radio' +
 			(this.props.disabled ? ' mdc-radio--disabled' : '');
 
 		return (
-			<label className="rme-radio-button__wrap-label">
+			<FormField>
 				<div
 					className={classes}
 					ref={el => this.divElem = el}>
 					<input
 						className="mdc-radio__native-control"
-						defaultChecked={this.props.defaultChecked}
-						disabled={this.props.disabled}
-						id={this.props.id}
-						name={this.props._name}
+						id={this.idThatWeMustHave}
 						type="radio"
-						value={this.props.value}
 						onClick={this.handleClick}
-						/>
+						{...otherProps}/>
 					<div className="mdc-radio__background">
 						<div className="mdc-radio__outer-circle"></div>
 						<div className="mdc-radio__inner-circle"></div>
 					</div>
 				</div>
-				<div className="rme-radio-button__children">
-					{this.props.children}
-				</div>
-			</label>
+				<label htmlFor={this.idThatWeMustHave}>
+					{children}
+				</label>
+			</FormField>
 		);
 	}
 }
