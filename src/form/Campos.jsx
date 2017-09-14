@@ -13,6 +13,7 @@ export default class Campos extends Component {
 	}
 
 	handleChange = e => {
+		console.log(e.target.name, e.target.value);
 		this.props.mudouAlgo({
 			[e.target.name]: e.target.value
 		});
@@ -23,7 +24,6 @@ export default class Campos extends Component {
 			<div>
 				<div>
 					<TextField name="nome" label="Nome"
-						helpText="Motherfucker"
 						onChange={this.handleChange} size="22" autoFocus/>
 					<Checkbox defaultChecked name="nacional"
 						onChange={this.handleChange}>Nacional</Checkbox>

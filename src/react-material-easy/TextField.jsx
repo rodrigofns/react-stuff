@@ -15,6 +15,7 @@ import Util from './Util';
 export class TextField extends Component {
 	static propTypes = {
 		autoFocus: PropTypes.bool,
+		helpText: PropTypes.string,
 		helpTextPersistent: PropTypes.bool,
 		type: PropTypes.oneOf(['email', 'password', 'text', 'url']),
 		onChange: PropTypes.func
@@ -55,15 +56,15 @@ export class TextField extends Component {
 	}
 
 	render() {
-		let { autoFocus, children, className,
-				helpText, helpTextPersistent, label, ...otherProps } = this.props;
+		let { autoFocus, children, className, helpText, helpTextPersistent,
+			label, onChange, ...otherProps } = this.props;
 
 		let helpClass = 'mdc-textfield-helptext' +
 			(this.props.helpTextPersistent ? ' mdc-textfield-helptext--persistent' : '');
 
 		return (
 			<FormField>
-				<div className="rme-text-field__wrap">
+				<span>
 					<label
 						className="mdc-textfield"
 						ref={el => this.divElem = el}>
@@ -78,12 +79,10 @@ export class TextField extends Component {
 							</span>
 						) : null}
 					</label>
-					{helpText ? (
-						<p className={helpClass}>
-							{helpText}
-						</p>
-					) : null}
-				</div>
+					<p className={helpClass}>
+						{helpText ? helpText : (<span>&nbsp;</span>)}
+					</p>
+				</span>
 			</FormField>
 		);
 	}

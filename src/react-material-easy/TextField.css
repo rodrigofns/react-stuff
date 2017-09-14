@@ -4,10 +4,6 @@
  * @see https://github.com/rodrigocfd/react-material-easy
  */
 
-.rme-text-field__wrap {
-	display: inline-block;
-}
-
 .rme-text-field__input {
 	letter-spacing: normal;
 	font-family: inherit;
