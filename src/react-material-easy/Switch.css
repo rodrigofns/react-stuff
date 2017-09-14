@@ -1,0 +1,15 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-switch__wrap {
+	margin-right: 8px;
+	padding: 13px 0;
+}
+
+.rme-switch__input {
+	top: 4px;
+	height: 26px;
+}

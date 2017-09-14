@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/switch/dist/mdc.switch.min.css';
+import './Switch.css';
 import { FormField } from './FormField';
 
 export class Switch extends Component {
@@ -58,13 +59,14 @@ export class Switch extends Component {
 			onChange, ...otherProps } = this.props;
 
 		let classes = 'mdc-switch' +
-			(this.props.disabled ? ' mdc-switch--disabled' : '');
+			(this.props.disabled ? ' mdc-switch--disabled' : '') +
+			' rme-switch__wrap';
 
 		return (
 			<FormField>
 				<div className={classes}>
 					<input
-						className="mdc-switch__native-control"
+						className="mdc-switch__native-control rme-switch__input"
 						id={this.idThatWeMustHave}
 						type="checkbox"
 						onChange={this.handleChange}

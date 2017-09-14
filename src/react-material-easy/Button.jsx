@@ -43,14 +43,12 @@ export class Button extends Component {
 	}
 
 	render() {
-		let classes = 'mdc-button rme-button__wrap' +
+		let classes = 'mdc-button' +
 			(this.props.accent ? ' mdc-button--accent' : '') +
 			(this.props.primary ? ' mdc-button--primary' : '') +
-			(this.props.raised ? ' mdc-button--raised' : '');
-
-		if (this.props.raised && !this.props.accent && !this.props.primary) {
-			classes += ' mdc-button--primary';
-		}
+			(this.props.raised ? ' mdc-button--raised' : '') +
+			((this.props.raised && !this.props.accent && !this.props.primary) ? ' mdc-button--primary': '') +
+			' rme-button__wrap';
 
 		return (
 			<button
