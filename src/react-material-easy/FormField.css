@@ -1,0 +1,11 @@
+/**
+ * Part of React Material Easy
+ * @author Rodrigo Cesar de Freitas Dias
+ * @see https://github.com/rodrigocfd/react-material-easy
+ */
+
+.rme-form-field__wrap {
+	font-family: inherit;
+	font-size: inherit;
+	letter-spacing: inherit;
+}

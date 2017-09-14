@@ -7,16 +7,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '@material/checkbox/dist/mdc.checkbox.min.css';
-import './Checkbox.css';
 import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox.min.js';
+import { FormField } from './FormField';
 
 export class Checkbox extends Component {
 	static propTypes = {
-		defaultChecked: PropTypes.oneOf([true, false, 'defaultChecked']),
-		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		defaultChecked: PropTypes.bool,
 		id: PropTypes.string,
-		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func
+	}
+
+	static _nextId = 0;
+
+	static _getNextId() {
+		return 'rme-checkbox__autogen_' + (Checkbox._nextId++);
+	}
+
+	componentWillMount() {
+		this.idThatWeMustHave = (this.props.id === undefined) ?
+			Checkbox._getNextId() : this.props.id;
 	}
 
 	componentDidMount() {
@@ -43,39 +52,39 @@ export class Checkbox extends Component {
 	}
 
 	render() {
+		let { checked, children, className, type, value, ...otherProps } = this.props;
+
 		let classes = 'mdc-checkbox' +
-			(this.props.disabled ? ' mdc-checkbox--disabled' : '');
+			(otherProps.disabled ? ' mdc-checkbox--disabled' : '');
 
 		return (
-			<label className="rme-checkbox__wrap-label">
+			<FormField>
 				<div
 					className={classes}
 					ref={el => this.divElem = el}>
 					<input
-						className="mdc-checkbox__native-control"
-						defaultChecked={this.props.defaultChecked}
-						disabled={this.props.disabled}
-						id={this.props.id}
-						name={this.props.name}
+						id={this.idThatWeMustHave}
 						type="checkbox"
-						onChange={this.handleChange}/>
-						<div className="mdc-checkbox__background">
-							<svg
-								className="mdc-checkbox__checkmark"
-								viewBox="0 0 24 24">
-								<path
-									className="mdc-checkbox__checkmark__path"
-									d="M1.73,12.91 8.1,19.28 22.79,4.59"
-									fill="none"
-									stroke="white"/>
-							</svg>
-							<div className="mdc-checkbox__mixedmark"></div>
-						</div>
+						className="mdc-checkbox__native-control"
+						onChange={this.handleChange}
+						{...otherProps}/>
+					<div className="mdc-checkbox__background">
+						<svg
+							className="mdc-checkbox__checkmark"
+							viewBox="0 0 24 24">
+							<path
+								className="mdc-checkbox__checkmark__path"
+								d="M1.73,12.91 8.1,19.28 22.79,4.59"
+								fill="none"
+								stroke="white"/>
+						</svg>
+						<div className="mdc-checkbox__mixedmark"></div>
+					</div>
 				</div>
-				<div className="rme-checkbox__children">
-					{this.props.children}
-				</div>
-			</label>
+				<label htmlFor={this.idThatWeMustHave}>
+					{children}
+				</label>
+			</FormField>
 		);
 	}
 }

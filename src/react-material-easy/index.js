@@ -14,6 +14,7 @@ export { Dialog } from './Dialog';
 export { DialogFooter } from './DialogFooter';
 export { DialogHeader } from './DialogHeader';
 export { Drawer } from './Drawer';
+export { FormField } from './FormField';
 export { Layout } from './Layout';
 export { LayoutBody } from './LayoutBody';
 export { LinearProgress } from './LinearProgress';
