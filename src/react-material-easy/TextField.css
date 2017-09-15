@@ -5,6 +5,6 @@
  */
 
 .rme-text-field__input {
-	letter-spacing: normal;
+	letter-spacing: inherit;
 	font-family: inherit;
 }

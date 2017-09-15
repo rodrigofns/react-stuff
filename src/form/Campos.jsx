@@ -4,6 +4,7 @@ import {
 	Checkbox,
 	RadioGroup,
 	RadioButton,
+	Select,
 	TextField
 } from '../react-material-easy';
 
@@ -25,6 +26,11 @@ export default class Campos extends Component {
 				<div>
 					<TextField name="nome" label="Nome"
 						onChange={this.handleChange} size="22" autoFocus/>
+					<Select name="brand" onChange={this.handleChange}>
+						<option value="ebmm">Music Man</option>
+						<option value="prs">PRS</option>
+						<option value="suhr">Suhr</option>
+					</Select>
 					<Checkbox defaultChecked name="nacional"
 						onChange={this.handleChange}>Nacional</Checkbox>
 				</div>

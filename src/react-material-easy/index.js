@@ -26,6 +26,7 @@ export { RadioGroup } from './RadioGroup';
 export { RoutedLayout } from './RoutedLayout';
 export { RoutedLayoutNav } from './RoutedLayoutNav';
 export { RoutedLayoutNavSeparator } from './RoutedLayoutNavSeparator';
+export { Select } from './Select';
 export { Switch } from './Switch';
 export { TextField } from './TextField';
 export { Toolbar } from './Toolbar';
