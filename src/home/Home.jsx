@@ -3,7 +3,10 @@ import {
 	Button,
 	Dialog,
 	DialogHeader,
-	DialogFooter
+	DialogFooter,
+	Menu,
+	MenuAnchor,
+	MenuItem
 } from '../react-material-easy';
 
 class Outra extends Component {
@@ -26,6 +29,10 @@ export default class Home extends Component {
 		});
 	}
 
+	menued = (v) => {
+		console.log(v);
+	}
+
 	render() {
 		return (
 			<div className="main-content">
@@ -41,7 +48,18 @@ export default class Home extends Component {
 						<Button autoFocus accent onClick={() => Dialog.close('pop', 'oi')}>Fecha</Button>
 					</DialogFooter>
 				</Dialog>
+
 				<Outra/>
+				<hr/>
+
+				<Menu onClick={this.menued}>
+					<MenuAnchor>
+						<Button raised>Open menu</Button>
+					</MenuAnchor>
+					<MenuItem value={{first:'aa'}}>First</MenuItem>
+					<MenuItem value="second">Second</MenuItem>
+					<MenuItem value="turd">Turd</MenuItem>
+				</Menu>
 			</div>
 		);
 	}

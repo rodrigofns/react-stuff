@@ -7,6 +7,16 @@
 import { Children } from 'react';
 
 export default class Util {
+	static whichChild(elem) {
+		let i = 0;
+		for (;;) {
+			elem = elem.previousElementSibling;
+			if (elem === null) break;
+			++i;
+		}
+		return i;
+	}
+
 	static addValueAndIfExistMakeArray(object, property, value) {
 		if (object[property] === undefined) {
 			object[property] = value;
