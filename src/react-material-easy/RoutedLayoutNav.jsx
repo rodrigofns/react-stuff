@@ -10,8 +10,9 @@ export const RoutedLayoutNav = () => null;
 
 RoutedLayoutNav.propTypes = {
 	activeStyle: PropTypes.object,
-	component: PropTypes.func.isRequired,
+	component: PropTypes.func,
 	exact: PropTypes.bool,
+	render: PropTypes.func,
 	strict: PropTypes.bool,
 	to: PropTypes.string.isRequired
 };

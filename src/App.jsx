@@ -6,6 +6,7 @@ import {
 	// LayoutBody,
 	// ListItem,
 	// ListSeparator,
+	Redirect,
 	RoutedLayout,
 	RoutedLayoutNav,
 	RoutedLayoutNavSeparator,
@@ -56,7 +57,13 @@ export default class App extends Component {
 				</Toolbar>
 				<RoutedLayoutNav exact to="/" component={Home}>Home</RoutedLayoutNav>
 				<RoutedLayoutNavSeparator/>
-				<RoutedLayoutNav to="/films" component={Films}>Films</RoutedLayoutNav>
+				<RoutedLayoutNav
+					to="/films"
+					render={props =>
+						( 1!=1 ? <Films/> : <Redirect to="/"/> )
+					}>
+					Films
+				</RoutedLayoutNav>
 				<RoutedLayoutNav to="/form" component={Form}>Form</RoutedLayoutNav>
 			</RoutedLayout>
 		);

@@ -26,7 +26,7 @@ export { MenuAnchor } from './MenuAnchor';
 export { MenuItem } from './MenuItem';
 export { RadioButton } from './RadioButton';
 export { RadioGroup } from './RadioGroup';
-export { RoutedLayout } from './RoutedLayout';
+export { RoutedLayout, Redirect } from './RoutedLayout';
 export { RoutedLayoutNav } from './RoutedLayoutNav';
 export { RoutedLayoutNavSeparator } from './RoutedLayoutNavSeparator';
 export { Select } from './Select';

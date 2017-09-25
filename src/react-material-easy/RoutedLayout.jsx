@@ -16,6 +16,8 @@ import { RoutedLayoutNav } from './RoutedLayoutNav';
 import { RoutedLayoutNavSeparator } from './RoutedLayoutNavSeparator';
 import Util from './Util';
 
+export { Redirect } from 'react-router-dom';
+
 export const RoutedLayout = (props) => {
 	let elems = Util.filterChildren(props.children, {
 		routedStuff: [RoutedLayoutNav, RoutedLayoutNavSeparator],
@@ -55,6 +57,7 @@ export const RoutedLayout = (props) => {
 									exact={r.props.exact}
 									key={i}
 									path={r.props.to}
+									render={r.props.render}
 									strict={r.props.strict}/>
 							);
 						}
