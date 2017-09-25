@@ -12,12 +12,11 @@ import { MDCRipple } from '@material/ripple/dist/mdc.ripple.min.js';
 
 export class Button extends Component {
 	static propTypes = {
-		accent: PropTypes.oneOf([true, false, 'accent']),
-		autoFocus: PropTypes.oneOf([true, false, 'autoFocus']),
-		disabled: PropTypes.oneOf([true, false, 'disabled']),
+		accent: PropTypes.bool,
+		autoFocus: PropTypes.bool,
 		id: PropTypes.string,
-		primary: PropTypes.oneOf([true, false, 'primary']),
-		raised: PropTypes.oneOf([true, false, 'raised']),
+		primary: PropTypes.bool,
+		raised: PropTypes.bool,
 		type: PropTypes.oneOf(['button', 'reset', 'submit']),
 		onClick: PropTypes.func
 	}
@@ -43,6 +42,10 @@ export class Button extends Component {
 	}
 
 	render() {
+		let { autoFocus, className,
+			accent, primary, raised,
+			onClick, ...otherProps } = this.props;
+
 		let classes = 'mdc-button' +
 			(this.props.accent ? ' mdc-button--accent' : '') +
 			(this.props.primary ? ' mdc-button--primary' : '') +
@@ -53,13 +56,9 @@ export class Button extends Component {
 		return (
 			<button
 				className={classes}
-				data-mdc-auto-init="MDCRipple"
-				disabled={this.props.disabled}
-				id={this.props.id}
 				ref={el => this.buttonElem = el}
-				type={this.props.type}
-				onClick={this.handleClick}>
-				{this.props.children}
+				onClick={this.handleClick}
+				{...otherProps}>
 			</button>
 		);
 	}
